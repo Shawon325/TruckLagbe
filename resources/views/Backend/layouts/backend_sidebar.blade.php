@@ -16,7 +16,7 @@
                     <a href="#"><span>Setting</span> <i class="icon-settings"></i></a>
                     <ul>
                         <li class="{{ (request()->is('division')) ? 'active' : '' }}"><a href="{{url('/admin/division')}}">Division</a></li>
-                        <li><a href="task_list.html">District</a></li>
+                        <li><a href="{{url('/admin/district')}}">District</a></li>
                         <li><a href="task_detailed.html">Upzilla</a></li>
                     </ul>
                 </li>
