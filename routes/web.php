@@ -31,5 +31,8 @@ Route::prefix('admin')->group(function(){
         Route::post('/division/store', 'DivisionController@store');
         Route::post('/division/update', 'DivisionController@update');
         Route::get('/division/show/{id}', 'DivisionController@show');
+         //District
+        Route::resource('/district', 'DistrictController');
+        Route::post('/district/store', 'DistrictController@store');
     });
 });
