@@ -30,8 +30,8 @@
                                 </div>
                             </div>
                             <br><br>
-                            
-                            
+
+
                             <div class="form-group">
                                 <label class="col-lg-3 control-label">Description:</label>
                                 <div class="col-lg-9">
@@ -69,7 +69,7 @@
                             <div class="form-group">
                                 <label class="col-lg-3 control-label">Division Name:</label>
                                 <div class="col-lg-9">
-                                    <select name="district_name" class="form-control">
+                                    <select name="division_name" class="form-control" id="division_name">
                                         <option selected disabled hidden>Choose one</option>
                                     @foreach($division as $value)
                                     <option value="{{$value->division_id}}">{{$value->division_name}}</option>
@@ -84,8 +84,8 @@
                                 </div>
                             </div>
                             <br><br>
-                            
-                            
+
+
                             <div class="form-group">
                                 <label class="col-lg-3 control-label">Description:</label>
                                 <div class="col-lg-9">
@@ -124,7 +124,10 @@
                             @foreach($district as $key => $value)
                                 <tr>
                                     <td>{{$key+1}}</td>
-                                    <td>NULL</td>
+                                    <td>
+                                        @php $division_data = collect($division)->where('division_id', $value->division_name)->first() @endphp
+                                        {{$division_data->division_name}}
+                                    </td>
                                     <td>{{$value->district_name}}</td>
                                     <td>{{$value->description}}</td>
                                     <td>

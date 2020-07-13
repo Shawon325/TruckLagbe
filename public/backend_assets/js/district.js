@@ -51,6 +51,8 @@ $(document).ready(function () {
             type: "get",
             dataType: "json",
             success: function (response) {
+                console.log(response);
+                $("#division_name").val(response.division_name);
                 $("#district_name").val(response.district_name);
                 $("#description").val(response.description);
                 $("#district_id").val(response.district_id);
