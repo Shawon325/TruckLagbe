@@ -1,7 +1,7 @@
 @extends('Backend.layouts.backend_head')
 @section('head_name', 'District')
 @section('content')
-    <button style="float: right" class="btn btn-info" data-toggle="modal" data-target="#add_division">Add new</button>
+    <button style="float: right" class="btn btn-info" data-toggle="modal" data-target="#add_division">Add new</button> 
     <form id="district_form">
         <div id="add_division" class="modal fade">
             <div class="modal-dialog">

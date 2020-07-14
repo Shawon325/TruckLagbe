@@ -16,7 +16,7 @@ $(document).ready(function () {
                 console.log(error);
             }
         })
-    });
+    }); 
     $(document).on("click", ".delete", function () {
         let data = $(this).attr("data");
         console.log(data);

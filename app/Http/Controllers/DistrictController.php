@@ -122,7 +122,7 @@ class DistrictController extends Controller
         }
         return response()->json($response, $status);
     }
-
+ 
     /**
      * Remove the specified resource from storage.
      *

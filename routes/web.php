@@ -17,7 +17,7 @@ Auth::routes();
 Route::get('/', function () {
     return view('auth.login');
 });
-
+ 
 //Route::get('/admin', function () {
 //    return view('Backend.dashboard');
 //});
@@ -36,6 +36,6 @@ Route::prefix('admin')->group(function(){
         Route::post('/district/store', 'DistrictController@store');
         Route::post('/district/update', 'DistrictController@update');
         Route::get('/district/show/{id}', 'DistrictController@show');
-        
+
     });
 });
