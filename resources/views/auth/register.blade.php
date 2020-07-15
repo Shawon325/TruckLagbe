@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <title>Register</title>
+    <title>Login</title>
     @include('Backend.layouts.backend_css')
     @include('Backend.layouts.backend_js')
 </head>
@@ -100,16 +100,5 @@
             </form>
         </div>
 </div>
-
-<div class="footer clearfix">
-    <div class="pull-left">&copy; 2013. Londinium Admin Template by <a href="http://themeforest.net/user/Kopyov">Eugene Kopyov</a></div>
-    <div class="pull-right icons-group">
-        <a href="#"><i class="icon-screen2"></i></a>
-        <a href="#"><i class="icon-balance"></i></a>
-        <a href="#"><i class="icon-cog3"></i></a>
-    </div>
-</div>
-
-
 </body>
 </html>
