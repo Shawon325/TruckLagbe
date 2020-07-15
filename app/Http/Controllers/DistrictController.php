@@ -30,9 +30,18 @@ class DistrictController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $division = Division::active()->get();
+        $district = District::where(function ($district) use ($request) {
+            if ($request->search) {
+                $district->where('district_name', 'LIKE', '%' . $request->search . '%');
+            }
+        })->paginate(10);
+        return view('Backend.Setting.District.list', [
+            'district' => $district,
+            'division' => $division
+        ]);
     }
 
     /**

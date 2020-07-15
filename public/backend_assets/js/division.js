@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+ 
     datalist();
     $(document).on("submit", "#division_form", function (e) {
         e.preventDefault();

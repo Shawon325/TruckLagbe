@@ -80,7 +80,7 @@
             </div>
         </div>
     </form>
-
+    
     <div class="tabbable page-tabs">
         <div class="tab-content">
             <div class="tab-pane active fade in" id="inside">
