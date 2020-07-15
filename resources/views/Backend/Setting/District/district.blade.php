@@ -1,5 +1,7 @@
 @extends('Backend.layouts.backend_head')
-@section('head_name', 'District')
+@section('head', 'Distract')
+@section('head_name', 'Dashboard')
+@section('sub_name', 'Distract')
 @section('content')
     <button style="float: right" class="btn btn-info" data-toggle="modal" data-target="#add_division">Add new</button> 
     <form id="district_form">
@@ -107,49 +109,24 @@
         <div class="tab-content">
             <div class="tab-pane active fade in" id="inside">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h6 class="panel-title"><i class="icon-table"></i> View All Distract info</h6></div>
+                    <div class="panel-heading"><h6 class="panel-title"><i class="icon-table"></i> View All Image</h6></div>
                     <div class="datatable">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Division Name</th>
-                                <th>Distract Name</th>
-                                <th>Description</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($district as $key => $value)
-                                <tr>
-                                    <td>{{$key+1}}</td>
-                                    <td>
-                                        @php $division_data = collect($division)->where('division_id', $value->division_name)->first() @endphp
-                                        {{$division_data->division_name}}
-                                    </td>
-                                    <td>{{$value->district_name}}</td>
-                                    <td>{{$value->description}}</td>
-                                    <td>
-                                        @if ($value->status == 1)
-                                            <span class="text-success">Active</span>
-                                        @else
-                                            <span class="text-danger">Inactive</span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-danger delete" data="{{$value->district_id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                        @if ($value->status == 1)
-                                            <button class="btn btn-success" id="status" data="{{$value->district_id}}"><i class="fa fa-refresh" aria-hidden="true"></i></button>
-                                        @else
-                                            <button class="btn btn-primary" id="status" data="{{$value->district_id}}"> <i class="fa fa-refresh" aria-hidden="true"></i></button>
-                                        @endif
-                                        <button class="btn btn-info edit" data="{{$value->district_id}}" data-toggle="modal" data-target="#editModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                        <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                            <label><span>Filter:</span>
+                                <input type="search" class="search" aria-controls="DataTables_Table_0" placeholder="Type to filter...">
+                            </label>
+                        </div>
+                        <div class="dataTables_length" id="DataTables_Table_0_length">
+                            <label><span>Show:</span>
+                                <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="select2-offscreen" tabindex="-1" title="">
+                                    <option value="10">10</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div id="data_lists"></div>
                     </div>
                 </div>
             </div>

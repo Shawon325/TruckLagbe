@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    datalist();
     $(document).on("submit", "#district_form", function (e) {
         e.preventDefault();
         let data = $(this).serializeArray();
@@ -8,6 +9,7 @@ $(document).ready(function () {
             type: "post",
             dataType: "json",
             success: function (response) {
+                datalist();
                 toastr.success("District data added successfully", "Success!");
                 $("#close").click();
                 $("#district_form").trigger("reset");
@@ -35,7 +37,8 @@ $(document).ready(function () {
                     type: "delete",
                     dataType: "json",
                     success: function (response) {
-                       toastr.success("District data deleted successfully", "Success!");
+                        datalist();
+                        toastr.success("District data deleted successfully", "Success!");
                     }
                 })
             } else {
@@ -43,6 +46,24 @@ $(document).ready(function () {
             }
         });
     });
+    $(document).on("click", "#status", function () {
+        let data = $(this).attr("data");
+
+        $.ajax({
+            url: "/admin/district/show/"+data,
+            type: "get",
+            dataType: "json",
+            success: function (response) {
+                datalist();
+                if (response.status === 0) {
+                    toastr.success("District status inactive", "Success!");
+                } else {
+                    toastr.success("District status active", "Success!");
+                }
+            }
+        })
+    })
+
     $(document).on("click", ".edit", function () {
         let data = $(this).attr("data");
 
@@ -71,6 +92,7 @@ $(document).ready(function () {
             type: "post",
             dataType: "json",
             success: function (response) {
+                datalist();
                 toastr.success("District data updated successfully", "Success!");
                 $("#close2").click();
                 $("#district_update_form").trigger("reset");
@@ -80,20 +102,28 @@ $(document).ready(function () {
             }
         })
     });
-    $(document).on("click", "#status", function () {
-        let data = $(this).attr("data");
+    $("#data_lists").on("click", ".page-link", function(e) {
+        e.preventDefault();
+        let page_link = $(this).attr('href');
+        datalist(page_link);
+    });
+
+    $(document).on("keyup", ".search", function () {
+        datalist();
+    });
+
+    function datalist(page_link="/admin/district/create") {
+        let search = $(".search").val();
 
         $.ajax({
-            url: "/admin/district/show/"+data,
+            url: page_link,
+            data:{search : search},
             type: "get",
-            dataType: "json",
+            datatype: "html",
             success: function (response) {
-                if (response.status === 0) {
-                    toastr.success("District status inactive", "Success!");
-                } else {
-                    toastr.success("District status active", "Success!");
-                }
+                $("#data_lists").html(response);
             }
         })
-    })
+    }
+    
 });
