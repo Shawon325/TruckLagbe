@@ -1,4 +1,5 @@
 @extends('Backend.layouts.backend_head')
+@section('head', 'Dashboard')
 @section('head_name', 'Dashboard')
 @section('content')
     <ul class="info-blocks">

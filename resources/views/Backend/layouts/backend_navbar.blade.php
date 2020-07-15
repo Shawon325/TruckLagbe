@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <div class="navbar navbar-inverse" role="navigation">
     <div class="navbar-header">
-        <a class="navbar-brand" href="#"><img src="backend_assets/images/logo.png" alt="Londinium"></a>
+        <a class="navbar-brand" href="#"><img src="{{asset('backend_assets/images/logo.png')}}" alt="Londinium"></a>
         <a class="sidebar-toggle"><i class="icon-paragraph-justify2"></i></a>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-icons">
             <span class="sr-only">Toggle navbar</span>
@@ -72,35 +72,35 @@
                 <ul class="popup-messages">
                     <li class="unread">
                         <a href="#">
-                            <img src="backend_assets/images/demo/users/face1.png" alt="" class="user-face">
+                            <img src="{{asset('backend_assets/images/demo/users/face1.png')}}" alt="" class="user-face">
                             <strong>Eugene Kopyov <i class="icon-attachment2"></i></strong>
                             <span>Aliquam interdum convallis massa...</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="backend_assets/images/demo/users/face2.png" alt="" class="user-face">
+                            <img src="{{asset('backend_assets/images/demo/users/face2.png')}}" alt="" class="user-face">
                             <strong>Jason Goldsmith <i class="icon-attachment2"></i></strong>
                             <span>Aliquam interdum convallis massa...</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="backend_assets/images/demo/users/face3.png" alt="" class="user-face">
+                            <img src="{{asset('backend_assets/images/demo/users/face3.png')}}" alt="" class="user-face">
                             <strong>Angel Novator</strong>
                             <span>Aliquam interdum convallis massa...</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="backend_assets/images/demo/users/face4.png" alt="" class="user-face">
+                            <img src="{{asset('backend_assets/images/demo/users/face4.png')}}" alt="" class="user-face">
                             <strong>Monica Bloomberg</strong>
                             <span>Aliquam interdum convallis massa...</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="backend_assets/images/demo/users/face5.png" alt="" class="user-face">
+                            <img src="{{asset('backend_assets/images/demo/users/face5.png')}}" alt="" class="user-face">
                             <strong>Patrick Winsleur</strong>
                             <span>Aliquam interdum convallis massa...</span>
                         </a>
@@ -160,7 +160,7 @@
 
         <li class="user dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown">
-                <img src="backend_assets/images/demo/users/face1.png" alt="">
+                <img src="{{asset('backend_assets/images/demo/users/face1.png')}}" alt="">
                 <span>Eugene Kopyov</span>
                 <i class="caret"></i>
             </a>

@@ -16,7 +16,7 @@ $(document).ready(function () {
                 console.log(error);
             }
         })
-    }); 
+    });
     $(document).on("click", ".delete", function () {
         let data = $(this).attr("data");
         console.log(data);
@@ -88,8 +88,7 @@ $(document).ready(function () {
             type: "get",
             dataType: "json",
             success: function (response) {
-                console.log(response);
-                if (response.status == 204) {
+                if (response.status === 0) {
                     toastr.success("District status inactive", "Success!");
                 } else {
                     toastr.success("District status active", "Success!");
@@ -98,4 +97,3 @@ $(document).ready(function () {
         })
     })
 });
-  

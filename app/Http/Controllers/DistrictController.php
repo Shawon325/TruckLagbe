@@ -12,7 +12,7 @@ class DistrictController extends Controller
 {
     /**
      * Display a listing of the resource.
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -72,13 +72,13 @@ class DistrictController extends Controller
     public function show($id)
     {
         $district_status = District::findOrFail($id);
-        if ($district_status->status == 0) {
-            $district_status->update(["status" => 1]);
-            $status = 203;
-        } else {
+        if ($district_status->status == 1) :
             $district_status->update(["status" => 0]);
-            $status = 204;
-        }
+            $status = 201;
+        else :
+            $district_status->update(["status" => 1]);
+            $status = 200;
+        endif;
         return response()->json($district_status, $status);
     }
 
@@ -122,7 +122,7 @@ class DistrictController extends Controller
         }
         return response()->json($response, $status);
     }
- 
+
     /**
      * Remove the specified resource from storage.
      *

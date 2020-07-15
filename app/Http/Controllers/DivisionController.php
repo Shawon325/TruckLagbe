@@ -16,8 +16,7 @@ class DivisionController extends Controller
      */
     public function index()
     {
-        $division = Division::all();
-        return view('Backend.Setting.Division.division', ['division' => $division]);
+        return view('Backend.Setting.Division.division');
     }
 
     /**
@@ -25,9 +24,14 @@ class DivisionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $division = Division::where(function ($division) use ($request) {
+            if ($request->search) {
+                $division->where('division_name', 'LIKE', '%' . $request->search . '%');
+            }
+        })->paginate(10);
+        return view('Backend.Setting.Division.list', ['division' => $division]);
     }
 
     /**
@@ -67,12 +71,12 @@ class DivisionController extends Controller
     public function show($id)
     {
         $division_status = Division::findOrFail($id);
-        if ($division_status->status == 0) {
-            $division_status->update(["status" => 1]);
-            $status = 203;
-        } else {
+        if ($division_status->status == 1) {
             $division_status->update(["status" => 0]);
-            $status = 204;
+            $status = 201;
+        } else {
+            $division_status->update(["status" => 1]);
+            $status = 200;
         }
         return response()->json($division_status, $status);
     }

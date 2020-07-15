@@ -1,13 +1,13 @@
 <div class="page-header">
     <div class="page-title">
-        <h3>@yield('head_name')</h3>
+        <h3><b>@yield('head')</b></h3>
     </div>
 </div>
 
 <div class="breadcrumb-line">
     <ul class="breadcrumb">
-        <li><a href="index.html">Home</a></li>
-        <li class="active">@yield('head_name')</li>
+        <li><a href="/">@yield('head_name')</a></li>
+        <li class="active">@yield('sub_name')</li>
     </ul>
 
     <div class="visible-xs breadcrumb-toggle">

@@ -10,6 +10,7 @@ $(document).ready(function () {
             type: "post",
             dataType: "json",
             success: function (response) {
+                datalist();
                 toastr.success("Division data added successfully", "Success!");
                 $("#close").click();
                 $("#division_form").trigger("reset");
@@ -38,7 +39,8 @@ $(document).ready(function () {
                     type: "delete",
                     dataType: "json",
                     success: function (response) {
-                       toastr.success("Division data deleted successfully", "Success!");
+                        datalist();
+                        toastr.success("Division data deleted successfully", "Success!");
                     }
                 })
             } else {
@@ -55,8 +57,8 @@ $(document).ready(function () {
             type: "get",
             dataType: "json",
             success: function (response) {
-                console.log(response);
-                if (response.status == 204) {
+                datalist();
+                if (response.status === 0) {
                     toastr.success("Division status inactive", "Success!");
                 } else {
                     toastr.success("Division status active", "Success!");
@@ -91,6 +93,7 @@ $(document).ready(function () {
             type: "post",
             dataType: "json",
             success: function (response) {
+                datalist();
                 toastr.success("Division data updated successfully", "Success!");
                 $("#close2").click();
                 $("#division_update_form").trigger("reset");
@@ -101,13 +104,26 @@ $(document).ready(function () {
         })
     });
 
-    function datalist() {
+    $("#data_lists").on("click", ".page-link", function(e) {
+        e.preventDefault();
+        let page_link = $(this).attr('href');
+        datalist(page_link);
+    });
+
+    $(document).on("keyup", ".search", function () {
+        datalist();
+    });
+
+    function datalist(page_link="/admin/division/create") {
+        let search = $(".search").val();
+
         $.ajax({
-            url: "/admin/division",
+            url: page_link,
+            data:{search : search},
             type: "get",
-            datatype: "json",
+            datatype: "html",
             success: function (response) {
-                console.log(response);
+                $("#data_lists").html(response);
             }
         })
     }
