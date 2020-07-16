@@ -23,7 +23,7 @@
                 <li>
                     <a href="#"><span>Truck</span> <i class="icon-truck"></i></a>
                     <ul>
-                        <li><a href="task_grid.html">Ton</a></li>
+                        <li class="{{ (request()->is('admin/ton')) ? 'active' : '' }}"><a href="{{url('/admin/ton')}}">Ton</a></li>
                         <li><a href="task_list.html">Truck</a></li>
                     </ul>
                 </li>
