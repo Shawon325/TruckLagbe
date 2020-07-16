@@ -42,5 +42,15 @@ Route::prefix('admin')->group(function(){
         Route::post('/upzilla/update', 'UpzillaController@update');
         Route::get('/upzilla/show/{id}', 'UpzillaController@show');
 
+        //Part of Truck
+
+        //Ton
+        Route::resource('/ton', 'TonController');
+        Route::post('/ton/store', 'TonController@store');
+        Route::post('/ton/update', 'TonController@update');
+        Route::get('/ton/show/{id}', 'TonController@show');
+        //Truck
+
+
     });
 });
