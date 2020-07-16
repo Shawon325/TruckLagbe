@@ -36,6 +36,11 @@ Route::prefix('admin')->group(function(){
         Route::post('/district/store', 'DistrictController@store');
         Route::post('/district/update', 'DistrictController@update');
         Route::get('/district/show/{id}', 'DistrictController@show');
+         //Upzilla
+        Route::resource('/upzilla', 'UpzillaController');
+        Route::post('/upzilla/store', 'UpzillaController@store');
+        Route::post('/upzilla/update', 'UpzillaController@update');
+        Route::get('/upzilla/show/{id}', 'UpzillaController@show');
 
     });
 });

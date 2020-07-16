@@ -17,7 +17,7 @@
                     <ul>
                         <li class="{{ (request()->is('admin/division')) ? 'active' : '' }}"><a href="{{url('/admin/division')}}">Division</a></li>
                         <li class="{{ (request()->is('admin/district')) ? 'active' : '' }}"><a href="{{url('/admin/district')}}">District</a></li>
-                        <li><a href="task_detailed.html">Upzilla</a></li>
+                        <li><a href="{{url('/admin/upzilla')}}">Upzilla</a></li>
                     </ul>
                 </li>
                 <li>
