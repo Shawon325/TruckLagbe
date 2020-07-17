@@ -6,7 +6,7 @@
 
 <div class="breadcrumb-line">
     <ul class="breadcrumb">
-        <li><a href="/">@yield('head_name')</a></li>
+        <li><a href="{{ url('/admin') }}">@yield('head_name')</a></li>
         <li class="active">@yield('sub_name')</li>
     </ul>
 

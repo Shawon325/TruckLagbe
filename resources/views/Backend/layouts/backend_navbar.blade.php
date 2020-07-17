@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <div class="navbar navbar-inverse" role="navigation">
     <div class="navbar-header">
-        <a class="navbar-brand" href="#"><img src="{{asset('backend_assets/images/logo.png')}}" alt="Londinium"></a>
+        <a class="navbar-brand" href="{{ url('/admin') }}"><img src="{{asset('backend_assets/images/23.png')}}" alt="Track Lagbe"></a>
         <a class="sidebar-toggle"><i class="icon-paragraph-justify2"></i></a>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-icons">
             <span class="sr-only">Toggle navbar</span>
@@ -161,7 +161,6 @@
         <li class="user dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown">
                 <img src="{{asset('backend_assets/images/demo/users/face1.png')}}" alt="">
-                <span>Eugene Kopyov</span>
                 <i class="caret"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-right icons-right">
