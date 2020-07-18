@@ -1,4 +1,5 @@
 @extends('Backend.layouts.backend_head')
+@section('title', '|| Upzilla')
 @section('head', 'Upzilla')
 @section('head_name', 'Dashboard')
 @section('sub_name', 'Upzilla')

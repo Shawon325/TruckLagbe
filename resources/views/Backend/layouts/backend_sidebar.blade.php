@@ -1,15 +1,5 @@
     <div class="sidebar">
         <div class="sidebar-content">
-
-            <div class="user-menu dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="{{asset('backend_assets/images/demo/users/face3.png')}}" alt="">
-                    <div class="user-info">
-                        Md. Shawon <span>Web Developer</span>
-                    </div>
-                </a>
-            </div>
-
             <ul class="navigation">
                 <li class="{{ (request()->is('admin')) ? 'active' : '' }}"><a href="{{ url('/admin') }}"><span>Dashboard</span> <i class="icon-screen2"></i></a></li>
                 <li>

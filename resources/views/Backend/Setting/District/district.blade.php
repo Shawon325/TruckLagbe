@@ -1,4 +1,5 @@
 @extends('Backend.layouts.backend_head')
+@section('title', '|| Distract')
 @section('head', 'Distract')
 @section('head_name', 'Dashboard')
 @section('sub_name', 'Distract')

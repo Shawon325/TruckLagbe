@@ -1,4 +1,5 @@
 @extends('Backend.layouts.backend_head')
+@section('title', '|| Division')
 @section('head', 'Division')
 @section('head_name', 'Dashboard')
 @section('sub_name', 'Division')
