@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    datalist();
     let max_field = 5;
     let i = 1;
     let wrapper = $(".input_field");
@@ -80,6 +81,7 @@ $(document).ready(function () {
                     type: "delete",
                     dataType: "json",
                     success: function (response) {
+                        datalist();
                         toastr.success("Truck deleted successfully", "Success!");
                     }
                 })
@@ -97,6 +99,7 @@ $(document).ready(function () {
             type: "get",
             dataType: "json",
             success: function (response) {
+                datalist();
                 if (response.status === 0) {
                     toastr.success("Truck status inactive", "Success!");
                 } else {
@@ -105,4 +108,41 @@ $(document).ready(function () {
             }
         })
     })
+
+    $(document).on("click", ".image", function () {
+        let data = $(this).attr("data");
+
+        $.ajax({
+            url: "/admin/image/" + data,
+            type: "get",
+            dataType: "json",
+            success: function (response) {
+                console.log(response);
+            }
+        })
+    })
+
+    $("#data_lists").on("click", ".page-link", function (e) {
+        e.preventDefault();
+        let page_link = $(this).attr('href');
+        datalist(page_link);
+    });
+
+    $(document).on("keyup", ".search", function () {
+        datalist();
+    });
+
+    function datalist(page_link = "/admin/list") {
+        let search = $(".search").val();
+
+        $.ajax({
+            url: page_link,
+            data: {search: search},
+            type: "get",
+            datatype: "html",
+            success: function (response) {
+                $("#data_lists").html(response);
+            }
+        })
+    }
 })

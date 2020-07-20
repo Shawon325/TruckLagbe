@@ -34,7 +34,6 @@ Route::prefix('admin')->group(function(){
          //District
         Route::resource('/district', 'DistrictController');
         Route::post('/district/store', 'DistrictController@store');
-        //Route::post('/district/update', 'DistrictController@update');
         Route::get('/district/show/{id}', 'DistrictController@show');
         //Upzilla
         Route::resource('/upzilla', 'UpzillaController');
@@ -51,6 +50,8 @@ Route::prefix('admin')->group(function(){
         Route::get('/truck/division/{division_id}', 'TruckController@division');
         Route::get('/truck/district/{district_id}', 'TruckController@district');
         Route::get('/truck/show/{id}', 'TruckController@show');
+        Route::get('/list', 'TruckController@list');
+        Route::get('/image/{id}', 'TruckController@image');
 
     });
 });

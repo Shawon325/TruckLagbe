@@ -23,9 +23,9 @@ class TruckController extends Controller
      */
     public function index()
     {
-        $truck = Truck::orderBy("truck_id", "desc")->with("truck_ton")->get();
+//        $truck = Truck::orderBy("truck_id", "desc")->with("truck_ton")->get();
 
-        return view('Backend.Truck.truck_list', ["truck" => $truck]);
+        return view('Backend.Truck.truck_list');
     }
 
     /**
@@ -55,10 +55,10 @@ class TruckController extends Controller
         return TruckCollection::collection($upzilla);
     }
 
-    public function list(TruckRequest $request)
+    public function list(Request $request)
     {
-        $truck = Truck::search($request->search)->paginate(10);
-        return view('Backend.Setting.District.list', [
+        $truck = Truck::search($request->search)->with("truck_ton")->paginate(10);
+        return view('Backend.Truck.list', [
             'truck' => $truck,
         ]);
     }
@@ -119,6 +119,11 @@ class TruckController extends Controller
             $status = 200;
         endif;
         return response()->json($truck_status, $status);
+    }
+
+    public function image($id) {
+        $truck_images = TruckImages::where("truck_id", $id)->get();
+        return TruckCollection::collection($truck_images);
     }
 
     /**
