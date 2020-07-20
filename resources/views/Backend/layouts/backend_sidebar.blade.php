@@ -13,18 +13,19 @@
             <ul class="navigation">
                 <li class="{{ (request()->is('admin')) ? 'active' : '' }}"><a href="{{ url('/admin') }}"><span>Dashboard</span> <i class="icon-screen2"></i></a></li>
                 <li>
-                    <a href="#"><span>Setting</span> <i class="icon-settings"></i></a>
+                    <a href="#"><span>Address Setting</span> <i class="icon-settings"></i></a>
                     <ul>
                         <li class="{{ (request()->is('admin/division')) ? 'active' : '' }}"><a href="{{url('/admin/division')}}">Division</a></li>
                         <li class="{{ (request()->is('admin/district')) ? 'active' : '' }}"><a href="{{url('/admin/district')}}">District</a></li>
-                        <li><a href="{{url('/admin/upzilla')}}">Upzilla</a></li>
+                        <li class="{{ (request()->is('admin/upzilla')) ? 'active' : '' }}"><a href="{{url('/admin/upzilla')}}">Upzilla</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#"><span>Truck</span> <i class="icon-truck"></i></a>
                     <ul>
                         <li class="{{ (request()->is('admin/ton')) ? 'active' : '' }}"><a href="{{url('/admin/ton')}}">Ton</a></li>
-                        <li><a href="task_list.html">Truck</a></li>
+                        <li class="{{ (request()->is('admin/truck/create')) ? 'active' : '' }}"><a href="{{url('/admin/truck/create')}}">Add Truck</a></li>
+                        <li class="{{ (request()->is('admin/truck')) ? 'active' : '' }}"><a href="{{url('/admin/truck')}}">Truck List</a></li>
                     </ul>
                 </li>
                 <li>

@@ -8,15 +8,20 @@ class District extends Model
 {
     protected $table = "districts";
     protected $primaryKey = "district_id";
-    protected $fillable = ["district_name","division_name", "description", "status"];
+    protected $fillable = ["district_name", "division_name", "description", "status"];
 
-    public function validation()
+//    public function validation()
+//    {
+//        return [
+//            'district_name' => 'required',
+//            'division_name' => 'required',
+//            'description' => 'required',
+//        ];
+//    }
+
+    public function scopeSearch($query, $search)
     {
-        return [
-            'district_name' => 'required',
-            'division_name' => 'required',
-            'description'   => 'required',
-        ];
+        return $query->where('district_name', 'LIKE', '%' . $search . '%');
     }
 
     public function scopeActive($query)
