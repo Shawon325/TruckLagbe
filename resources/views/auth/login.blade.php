@@ -28,7 +28,7 @@
         <div class="popup-header" style="margin-top: -60px;">
             <a href="{{route('register')}}" class="pull-left"><i class="icon-user-plus"></i></a>
             <span class="text-semibold">User Login</span>
-            
+
         </div>
         <div class="well">
             <form method="POST" action="{{ route('login') }}">
@@ -53,14 +53,14 @@
                     @enderror
                 </div>
 
-                
 
-                
+
+
 
                 <div class="row form-actions">
                     <div class="col-xs-6">
                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                        <label class="form-check-label" for="remember">Remember Me</label> 
+                        <label class="form-check-label" for="remember">Remember Me</label>
                     </div>
 
                     <div class="col-xs-6">

@@ -17,7 +17,7 @@ Auth::routes();
 Route::get('/', function () {
     return view('auth.login');
 });
- 
+
 //Route::get('/admin', function () {
 //    return view('Backend.dashboard');
 //});
@@ -34,23 +34,23 @@ Route::prefix('admin')->group(function(){
          //District
         Route::resource('/district', 'DistrictController');
         Route::post('/district/store', 'DistrictController@store');
-        Route::post('/district/update', 'DistrictController@update');
+        //Route::post('/district/update', 'DistrictController@update');
         Route::get('/district/show/{id}', 'DistrictController@show');
-         //Upzilla
+        //Upzilla
         Route::resource('/upzilla', 'UpzillaController');
         Route::post('/upzilla/store', 'UpzillaController@store');
         Route::post('/upzilla/update', 'UpzillaController@update');
         Route::get('/upzilla/show/{id}', 'UpzillaController@show');
-
-        //Part of Truck
-
         //Ton
         Route::resource('/ton', 'TonController');
         Route::post('/ton/store', 'TonController@store');
         Route::post('/ton/update', 'TonController@update');
         Route::get('/ton/show/{id}', 'TonController@show');
         //Truck
-
+        Route::resource('/truck', 'TruckController');
+        Route::get('/truck/division/{division_id}', 'TruckController@division');
+        Route::get('/truck/district/{district_id}', 'TruckController@district');
+        Route::get('/truck/show/{id}', 'TruckController@show');
 
     });
 });

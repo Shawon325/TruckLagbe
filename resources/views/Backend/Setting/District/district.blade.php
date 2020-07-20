@@ -4,7 +4,7 @@
 @section('head_name', 'Dashboard')
 @section('sub_name', 'Distract')
 @section('content')
-    <button style="float: right" class="btn btn-info" data-toggle="modal" data-target="#add_division">Add new</button> 
+    <button style="float: right" class="btn btn-info" data-toggle="modal" data-target="#add_division">Add new</button>
     <form id="district_form">
         <div id="add_division" class="modal fade">
             <div class="modal-dialog">
@@ -24,12 +24,14 @@
                                     <option value="{{$value->division_id}}">{{$value->division_name}}</option>
                                     @endforeach
                                     </select>
+                                    <span class="text-danger" id="division_name"></span>
                                 </div>
                             </div><br><br>
                             <div class="form-group">
                                 <label class="col-lg-3 control-label">Distract Name:</label>
                                 <div class="col-lg-9">
                                     <input type="text" class="form-control" name="district_name" placeholder="Distract Name">
+                                    <span class="text-danger" id="district_name"></span>
                                 </div>
                             </div>
                             <br><br>
@@ -39,6 +41,7 @@
                                 <label class="col-lg-3 control-label">Description:</label>
                                 <div class="col-lg-9">
                                     <input type="text" class="form-control" name="description" placeholder="Description">
+                                    <span class="text-danger" id="description"></span>
                                 </div>
                             </div>
                             <br><br>
@@ -72,18 +75,20 @@
                             <div class="form-group">
                                 <label class="col-lg-3 control-label">Division Name:</label>
                                 <div class="col-lg-9">
-                                    <select name="division_name" class="form-control" id="division_name">
+                                    <select name="division_name" class="form-control" id="e_division_name">
                                         <option selected disabled hidden>Choose one</option>
                                     @foreach($division as $value)
                                     <option value="{{$value->division_id}}">{{$value->division_name}}</option>
                                     @endforeach
                                     </select>
+                                    <span class="text-danger" id="u_division_name"></span>
                                 </div>
                             </div><br><br>
                             <div class="form-group">
                                 <label class="col-lg-3 control-label">Distract Name:</label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" id="district_name" name="district_name" placeholder="Distract Name">
+                                    <input type="text" class="form-control" id="e_district_name" name="district_name" placeholder="Distract Name">
+                                    <span class="text-danger" id="u_district_name"></span>
                                 </div>
                             </div>
                             <br><br>
@@ -92,7 +97,8 @@
                             <div class="form-group">
                                 <label class="col-lg-3 control-label">Description:</label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" id="description" name="description" placeholder="Description">
+                                    <input type="text" class="form-control" id="e_description" name="description" placeholder="Description">
+                                    <span class="text-danger" id="u_description"></span>
                                 </div>
                             </div>
                             <br><br>

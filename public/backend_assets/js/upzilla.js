@@ -1,4 +1,4 @@
-$(document).ready(function () { 
+$(document).ready(function () {
     datalist();
     $(document).on("submit", "#upzilla_form", function (e) {
         e.preventDefault();
@@ -21,7 +21,6 @@ $(document).ready(function () {
     });
     $(document).on("click", ".delete", function () {
         let data = $(this).attr("data");
-        console.log(data);
 
         swal({
             title: "Are you sure?",
@@ -62,7 +61,7 @@ $(document).ready(function () {
                 }
             }
         })
-    }) 
+    })
 
     $(document).on("click", ".edit", function () {
         let data = $(this).attr("data");
@@ -125,5 +124,5 @@ $(document).ready(function () {
             }
         })
     }
-    
+
 });
