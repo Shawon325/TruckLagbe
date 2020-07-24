@@ -52,6 +52,12 @@ Route::prefix('admin')->group(function(){
         Route::get('/truck/show/{id}', 'TruckController@show');
         Route::get('/list', 'TruckController@list');
         Route::get('/image/{id}', 'TruckController@image');
+        //Posts
+        Route::resource('/posts', 'PostsController');
+        // Route::get('/posts/division/{division_id}', 'PostsController@division');
+        // Route::get('/posts/district/{district_id}', 'PostsController@district');
+        // Route::get('/list', 'PostsController@list');
+
 
     });
 });
