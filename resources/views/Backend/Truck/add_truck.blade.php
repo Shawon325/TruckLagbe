@@ -1,4 +1,5 @@
 @extends('Backend.layouts.backend_head')
+@section('title', '|| Add Truck')
 @section('head', 'Add Truck')
 @section('head_name', 'Dashboard')
 @section('sub_name', 'Add Truck')
@@ -13,7 +14,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <label>Truck Number:</label>
-                            <input type="text" class="form-control" name="truck_number" id="truck_number" placeholder="John Doe"
+                            <input type="text" class="form-control" name="truck_number" id="truck_number" placeholder="Truck Number"
                                    value="{{old('truck_number')}}">
                             @if($errors->first('truck_number'))
                                 <label for="truck_number" class="error">{{$errors->first('truck_number')}}</label>
@@ -88,7 +89,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <label>Home Address:</label>
-                            <input type="text" class="form-control" name="home_address" id="home_address" placeholder="John Doe"
+                            <input type="text" class="form-control" name="home_address" id="home_address" placeholder="Home Address"
                                    value="{{old('home_address')}}">
                             @if($errors->first('home_address'))
                                 <label for="home_address" class="error">{{$errors->first('home_address')}}</label>

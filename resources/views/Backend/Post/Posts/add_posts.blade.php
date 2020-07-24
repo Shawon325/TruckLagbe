@@ -1,4 +1,5 @@
 @extends('Backend.layouts.backend_head')
+@section('title', '|| Add Posts')
 @section('head', 'Posts')
 @section('head_name', 'Dashboard')
 @section('sub_name', 'Add Posts')
@@ -24,7 +25,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <label>Accessory Weight:</label>
-                            <input type="text" class="form-control" id="accessory_weight" name="accessory_weight" placeholder="Accessory Weight">
+                            <input type="text" class="form-control" id="accessory_weight" name="accessory_weight" placeholder="Accessory Weight (KG)">
                             @if($errors->first('accessory_weight'))
                                 <label for="accessory_weight" class="error">{{$errors->first('accessory_weight')}}</label>
                             @endif
@@ -90,7 +91,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <label>Home Address:</label>
-                            <input type="text" class="form-control" name="home_address1" id="home_address1" placeholder="John Doe"
+                            <input type="text" class="form-control" name="home_address1" id="home_address1" placeholder="Home Address"
                                    value="{{old('home_address1')}}">
                         </div>
                     </div>
@@ -143,7 +144,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <label>Home Address:</label>
-                            <input type="text" class="form-control" name="home_address2" id="home_address2" placeholder="John Doe"
+                            <input type="text" class="form-control" name="home_address2" id="home_address2" placeholder="Home Address"
                                    value="{{old('home_address2')}}">
                         </div>
                     </div>

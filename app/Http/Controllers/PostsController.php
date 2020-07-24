@@ -85,9 +85,17 @@ class PostsController extends Controller
      * @param  \App\Posts  $posts
      * @return \Illuminate\Http\Response
      */
-    public function show(Posts $posts)
+    public function show($id)
     {
-        //
+        $posts_status = Posts::findOrFail($id);
+        if ($posts_status->status == 1) :
+            $posts_status->update(["status" => 0]);
+            $status = 201;
+        else :
+            $posts_status->update(["status" => 1]);
+            $status = 200;
+        endif;
+        return response()->json($posts_status, $status);
     }
 
     /**
@@ -121,6 +129,7 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-
+        $posts = Posts::findOrFail($id)->delete();
+        return response()->json($posts, 202);
     }
 }
