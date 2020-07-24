@@ -8,6 +8,7 @@ use App\District;
 use App\Upzilla;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 
 class PostsController extends Controller
 {
@@ -32,23 +33,23 @@ class PostsController extends Controller
         $district = District::all();
         $upzilla = Upzilla::all();
 
-        return view('Backend.Post.add_post',[
+        return view('Backend.Post.Posts.add_posts',[
             'division' => $division,
             'district' => $district,
             'upzilla' => $upzilla,
         ]);
     }
-    // public function list(Request $request)
-    // {
-    //     $posts = Posts::where(function ($posts) use ($request) {
-    //         if ($request->search) {
-    //             $posts->where('post_id', 'LIKE', '%' . $request->search . '%');
-    //         }
-    //     })->paginate(10);
-    //     return view('Backend.Post.Posts.list', [
-    //         'posts' => $posts,
-    //     ]);
-    // }
+     public function list(Request $request)
+     {
+         $posts = Posts::where(function ($posts) use ($request) {
+             if ($request->search) {
+                 $posts->where('post_id', 'LIKE', '%' . $request->search . '%');
+             }
+         })->paginate(10);
+         return view('Backend.Post.Posts.list', [
+             'posts' => $posts,
+         ]);
+     }
 
     /**
      * Store a newly created resource in storage.
@@ -56,22 +57,26 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        // $division = Division::where('division_id', $request->division_name)->first();
-        // $district = District::where('district_id', $request->district_name)->first();
-        // $upzilla = Upzilla::where('upzilla_id', $request->upzilla_name)->first();
+         $posts_model = new Posts();
 
-        // $posts_moddel = new Posts();
-        // $posts_moddel->post_pick_up_time = $request->post_pick_up_time;
-        // $posts_moddel->post_pick_up_address = $division->division_name . "," . $district->district_name . "," . $upzilla->upzilla_name . "," . $request->post_pick_up_address;
-        // $posts_moddel->post_pick_drop_address = $division->division_name . "," . $district->district_name . "," . $upzilla->upzilla_name . "," . $request->post_pick_drop_address;
-        // $posts_moddel->accessory_weight = $request->accessory_weight;
-        // $posts_moddel->description = $request->description;
-        // $posts_moddel->save();
+         $division1 = Division::where('division_id', $request->division_name1)->first();
+         $district1 = District::where('district_id', $request->district_name1)->first();
+         $upzilla1 = Upzilla::where('upzilla_id', $request->upzilla_name1)->first();
 
-        // return view('Backend.Post.Posts.posts_list');
+         $division2 = Division::where('division_id', $request->division_name2)->first();
+         $district2 = District::where('district_id', $request->district_name2)->first();
+         $upzilla2 = Upzilla::where('upzilla_id', $request->upzilla_name2)->first();
 
+         $posts_model->post_pick_up_time = $request->post_pick_up_time;
+         $posts_model->post_pick_up_address = $division1->division_name . "," . $district1->district_name . "," . $upzilla1->upzilla_name . "," . $request->home_address1;
+         $posts_model->post_pick_drop_address = $division2->division_name . "," . $district2->district_name . "," . $upzilla2->upzilla_name . "," . $request->home_address2;
+         $posts_model->accessory_weight = $request->accessory_weight . "kg";
+         $posts_model->description = $request->description;
+         $posts_model->save();
+
+         return view('Backend.Post.Posts.posts_list');
     }
 
     /**
