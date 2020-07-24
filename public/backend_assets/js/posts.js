@@ -1,39 +1,73 @@
 $(document).ready(function () {
     datalist();
 
-    // $(document).on('change', '#division_name', function () {
-    //     let data = $(this).val();
+    $(document).on('change', '#division_name1', function () {
+        let data = $(this).val();
 
-    //     $.ajax({
-    //         url: "/admin/posts/division/" + data,
-    //         type: "get",
-    //         dataType: "json",
-    //         success: function (response) {
-    //             let b = $();
-    //             $.each(response.data, function (i, item) {
-    //                 b = b.add("<option value=" + item.district_id + ">" + item.district_name + "</option>")
-    //             });
-    //             $("#district_name").html(b);
-    //         }
-    //     })
-    // });
+        $.ajax({
+            url: "/admin/truck/division/" + data,
+            type: "get",
+            dataType: "json",
+            success: function (response) {
+                let b = $();
+                $.each(response.data, function (i, item) {
+                    b = b.add("<option value=" + item.district_id + ">" + item.district_name + "</option>")
+                });
+                $("#district_name1").html(b);
+            }
+        })
+    });
 
-    // $(document).on('change', '#district_name', function () {
-    //     let data = $(this).val();
+    $(document).on('change', '#district_name1', function () {
+        let data = $(this).val();
 
-    //     $.ajax({
-    //         url: "/admin/posts/district/" + data,
-    //         type: "get",
-    //         dataType: "json",
-    //         success: function (response) {
-    //             let b = $();
-    //             $.each(response.data, function (i, item) {
-    //                 b = b.add("<option value=" + item.upzilla_id + ">" + item.upzilla_name + "</option>")
-    //             });
-    //             $("#upzilla_name").html(b);
-    //         }
-    //     })
-    // });
+        $.ajax({
+            url: "/admin/truck/district/" + data,
+            type: "get",
+            dataType: "json",
+            success: function (response) {
+                let b = $();
+                $.each(response.data, function (i, item) {
+                    b = b.add("<option value=" + item.upzilla_id + ">" + item.upzilla_name + "</option>")
+                });
+                $("#upzilla_name1").html(b);
+            }
+        })
+    });
+
+    $(document).on('change', '#division_name2', function () {
+        let data = $(this).val();
+
+        $.ajax({
+            url: "/admin/truck/division/" + data,
+            type: "get",
+            dataType: "json",
+            success: function (response) {
+                let b = $();
+                $.each(response.data, function (i, item) {
+                    b = b.add("<option value=" + item.district_id + ">" + item.district_name + "</option>")
+                });
+                $("#district_name2").html(b);
+            }
+        })
+    });
+
+    $(document).on('change', '#district_name2', function () {
+        let data = $(this).val();
+
+        $.ajax({
+            url: "/admin/truck/district/" + data,
+            type: "get",
+            dataType: "json",
+            success: function (response) {
+                let b = $();
+                $.each(response.data, function (i, item) {
+                    b = b.add("<option value=" + item.upzilla_id + ">" + item.upzilla_name + "</option>")
+                });
+                $("#upzilla_name2").html(b);
+            }
+        })
+    });
     $("#data_lists").on("click", ".page-link", function (e) {
         e.preventDefault();
         let page_link = $(this).attr('href');
