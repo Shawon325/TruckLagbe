@@ -68,6 +68,52 @@ $(document).ready(function () {
             }
         })
     });
+
+    $(document).on("click", "#status", function () {
+        let data = $(this).attr("data");
+
+        $.ajax({
+            url: "/admin/posts/show/" + data,
+            type: "get",
+            dataType: "json",
+            success: function (response) {
+                datalist();
+                if (response.status === 0) {
+                    toastr.success("Posts status inactive", "Success!");
+                } else {
+                    toastr.success("Posts status active", "Success!");
+                }
+            }
+        })
+    })
+
+    $(document).on("click", ".delete", function () {
+        let data = $(this).attr("data");
+
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    url: "/admin/posts/" + data,
+                    type: "delete",
+                    dataType: "json",
+                    success: function (response) {
+                        datalist();
+                        toastr.success("Posts deleted successfully", "Success!");
+                    }
+                })
+            } else {
+                swal("Your imaginary District data is safe!");
+            }
+        });
+    })
+
     $("#data_lists").on("click", ".page-link", function (e) {
         e.preventDefault();
         let page_link = $(this).attr('href');

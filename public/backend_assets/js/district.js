@@ -55,6 +55,7 @@ $(document).ready(function () {
             }
         });
     });
+    
     $(document).on("click", "#status", function () {
         let data = $(this).attr("data");
 
