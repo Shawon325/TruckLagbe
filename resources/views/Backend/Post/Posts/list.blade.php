@@ -9,6 +9,7 @@
         <th>Description</th>
         <th>Status</th>
         <th>Action</th>
+        <th>Bid Posts</th>
     </tr>
     </thead>
     <tbody>
@@ -36,6 +37,9 @@
                     <button class="btn btn-primary" id="status" data="{{$value->post_id}}"> <i class="fa fa-refresh" aria-hidden="true"></i></button>
                 @endif
                 <button class="btn btn-info edit" data="{{$value->post_id}}" data-toggle="modal" data-target="#editModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+            </td>
+            <td>
+                <button class="btn btn-danger bidAdd" data="{{$value->post_id}}" data-toggle="modal" data-target="#bidAdd"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
             </td>
         </tr>
     @endforeach

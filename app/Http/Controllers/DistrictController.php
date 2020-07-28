@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Division;
-use App\District;
+use App\District; 
 use App\Http\Requests\DistrictRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;

@@ -56,7 +56,7 @@ class DivisionController extends Controller
             $status = 201;
             $response = [
                 "status" => $status,
-                "errors" => $validation->errors(),
+                "data" => $division_model,
             ];
         }
         return response()->json($response, $status);

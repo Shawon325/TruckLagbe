@@ -56,7 +56,7 @@
         </div>
     </form>
     <br><br><br>
-
+ 
     <form id="district_update_form">
         <div id="editModal" class="modal fade">
             <div class="modal-dialog">

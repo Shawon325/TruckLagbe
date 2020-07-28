@@ -6,6 +6,7 @@ use App\Posts;
 use App\Division;
 use App\District;
 use App\Upzilla;
+use App\Truck;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
@@ -19,9 +20,12 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view('Backend.Post.Posts.posts_list');
+        $truck = Truck::all(); 
+        return view('Backend.Post.Posts.posts_list',[
+        'truck' => $truck,
+        ]);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -107,6 +111,11 @@ class PostsController extends Controller
     public function edit(Posts $posts)
     {
         //
+    }
+
+    public function bidAdd($post_id)
+    {
+        $data = Posts::findOrFail($post_id);
     }
 
     /**
