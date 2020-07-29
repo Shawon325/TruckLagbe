@@ -113,6 +113,20 @@ $(document).ready(function () {
             }
         });
     })
+    $(document).on("click", ".bidAdd", function () {
+        let data = $(this).attr("data");
+
+        $.ajax({
+            url: "/admin/posts/"+data+"/bidAdd",
+            type: "get",
+            dataType: "json",
+            success: function (response) {
+                console.log(response);
+                $("#post_id").val(response.post_id);
+                
+            }
+        })
+    })
 
     $("#data_lists").on("click", ".page-link", function (e) {
         e.preventDefault();
