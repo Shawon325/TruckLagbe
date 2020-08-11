@@ -18,4 +18,14 @@ class Posts extends Model
     {
         return $query->where('post_id', 'LIKE', '%' . $search . '%');
     }
+
+    public function pick_up_address()
+    {
+        return $this->hasOne(PostPickUpModel::class, "post_id");
+    }
+
+    public function pick_down_address()
+    {
+        return $this->hasOne(PostPickDownModel::class, "post_id");
+    }
 }
