@@ -23,7 +23,6 @@
                     <ul>
                         <li class="{{ (request()->is('admin/posts/create')) ? 'active' : '' }}"><a href="{{url('/admin/posts/create')}}">Add Posts</a></li>
                         <li class="{{ (request()->is('admin/posts')) ? 'active' : '' }}"><a href="{{url('/admin/posts')}}">Posts List</a></li>
-                        <li><a href="task_list.html">Bid Post</a></li>
                     </ul>
                 </li>
             </ul>

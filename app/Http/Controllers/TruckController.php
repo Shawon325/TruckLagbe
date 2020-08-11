@@ -24,8 +24,8 @@ class TruckController extends Controller
     public function index()
     {
 //        $truck = Truck::orderBy("truck_id", "desc")->with("truck_ton")->get();
-
-        return view('Backend.Truck.truck_list');
+        $ton = ton::all();
+        return view('Backend.Truck.truck_list', ['ton' => $ton]);
     }
 
     /**
@@ -55,7 +55,7 @@ class TruckController extends Controller
         return TruckCollection::collection($upzilla);
     }
 
-    public function list(Request $request)
+    public function truck_list(Request $request)
     {
         $truck = Truck::search($request->search)->with("truck_ton")->paginate(10);
         return view('Backend.Truck.list', [
@@ -121,7 +121,8 @@ class TruckController extends Controller
         return response()->json($truck_status, $status);
     }
 
-    public function image($id) {
+    public function image($id)
+    {
         $truck_images = TruckImages::where("truck_id", $id)->get();
         return TruckCollection::collection($truck_images);
     }
@@ -132,9 +133,10 @@ class TruckController extends Controller
      * @param \App\Truck $truck
      * @return \Illuminate\Http\Response
      */
-    public function edit(Truck $truck)
+    public function edit($id)
     {
-        //
+        $truck_data = Truck::findOrFail($id);
+        return response()->json($truck_data, 201);
     }
 
     /**
@@ -144,9 +146,16 @@ class TruckController extends Controller
      * @param \App\Truck $truck
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Truck $truck)
+    public function update(TruckRequest $request, $id)
     {
-        //
+        $truck_model = Truck::findOrFail($id);
+        $truck_model->fill($request->all())->save();
+        $status = 201;
+        $response = [
+            "status" => $status,
+            "data" => $truck_model,
+        ];
+        return response()->json($response, $status);
     }
 
     /**

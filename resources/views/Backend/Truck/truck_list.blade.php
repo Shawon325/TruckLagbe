@@ -19,7 +19,8 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <input type="file" id="input-file-now" name="images"  class="dropify" />
+                                            <div class="row" id="blah"></div>
+{{--                                            <input type="file"  name="n_service_img" id="id_service_image" />--}}
                                         </div>
                                     </div>
                                 </div>
@@ -28,6 +29,51 @@
 
 
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form id="truck_update_form">
+        <div id="editModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h5 class="modal-title">EDIT DISTRICT</h5>
+                    </div>
+                    <div class="panel-body">
+
+                        <input type="hidden" class="form-control" name="truck_id" id="truck_id">
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Truck Number:</label>
+                            <div class="col-lg-9">
+                                <input type="text" class="form-control" name="truck_number" id="truck_number" placeholder="Truck Number">
+                                <span class="text-danger" id="u_truck_number"></span>
+                            </div>
+                        </div>
+                        <br><br>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Ton:</label>
+                            <div class="col-lg-9">
+                                <select name="ton" id="ton" class="form-control">
+                                    <option selected disabled hidden>Choose one</option>
+                                    @foreach($ton as $value)
+                                        <option value="{{$value->ton_id}}">{{$value->ton_number}}</option>
+                                    @endforeach
+                                </select>
+                                <span class="text-danger" id="ton"></span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-danger" id="close3" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </div>
             </div>

@@ -74,21 +74,21 @@ $(document).ready(function () {
             buttons: true,
             dangerMode: true,
         })
-        .then((willDelete) => {
-            if (willDelete) {
-                $.ajax({
-                    url: "/admin/truck/" + data,
-                    type: "delete",
-                    dataType: "json",
-                    success: function (response) {
-                        datalist();
-                        toastr.success("Truck deleted successfully", "Success!");
-                    }
-                })
-            } else {
-                swal("Your imaginary District data is safe!");
-            }
-        });
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        url: "/admin/truck/" + data,
+                        type: "delete",
+                        dataType: "json",
+                        success: function (response) {
+                            datalist();
+                            toastr.success("Truck deleted successfully", "Success!");
+                        }
+                    })
+                } else {
+                    swal("Your imaginary District data is safe!");
+                }
+            });
     })
 
     $(document).on("click", "#status", function () {
@@ -109,6 +109,54 @@ $(document).ready(function () {
         })
     })
 
+    $(document).on("click", ".edit", function () {
+        let data = $(this).attr("data");
+
+        $.ajax({
+            url: "/admin/truck/" + data + "/edit",
+            type: "get",
+            dataType: "json",
+            success: function (response) {
+                $("#truck_number").val(response.truck_number);
+                $("#ton").val(response.ton);
+                $("#truck_id").val(response.truck_id);
+            }
+        })
+    })
+
+    $(document).on("submit", "#truck_update_form", function (e) {
+        e.preventDefault();
+        let id = $("#truck_id").val();
+        let data = $(this).serializeArray();
+        $.each(data, function (key, value) {
+            $("#e_" + data[key].name).html("");
+            console.log(data[key].name);
+        })
+
+        $.ajax({
+            url: "/admin/truck/" + id,
+            data: data,
+            type: "put",
+            dataType: "json",
+            success: function (response) {
+                datalist();
+                toastr.success("Truck data updated successfully", "Success!");
+                $("#close3").click();
+                $("#truck_update_form").trigger("reset");
+            },
+            error: function (error) {
+                if (error.status === 422) {
+                    toastr.warning("Field is empty", "Warning!");
+                } else {
+                    toastr.error("Application errors", "Error!");
+                }
+                $.each(error.responseJSON.errors, function (i, value) {
+                    $("#u_" + i).html(value[0]);
+                })
+            }
+        })
+    });
+
     $(document).on("click", ".image", function () {
         let data = $(this).attr("data");
 
@@ -118,6 +166,12 @@ $(document).ready(function () {
             dataType: "json",
             success: function (response) {
                 console.log(response);
+                let b = $();
+                $.each(response.data, function (i, value) {
+                    b = b.add("<input id='id_service_image' class='col-6 dropify' data-default-file="+ '/'+ value.images+ ">")
+                })
+                $("#blah").html(b);
+                $('.dropify').dropify();
             }
         })
     })
@@ -132,7 +186,7 @@ $(document).ready(function () {
         datalist();
     });
 
-    function datalist(page_link = "/admin/list") {
+    function datalist(page_link = "/admin/truck_list") {
         let search = $(".search").val();
 
         $.ajax({

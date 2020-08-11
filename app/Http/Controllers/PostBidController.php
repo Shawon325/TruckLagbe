@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\PostBid;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostBidRequest;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use PhpParser\Node\Expr\AssignOp\Div;
 
@@ -39,9 +38,9 @@ class PostBidController extends Controller
      */
     public function store(PostBidRequest $request)
     {
-        $post_bid_model = new PostBid();
-        $post_bid_model->fill($request->all())->save();
-        return response()->json($post_bid_model, 201);
+//        $post_bid_model = new PostBid();
+//        $post_bid_model->fill($request->all())->save();
+//        return response()->json($post_bid_model, 201);
     }
 
     /**
