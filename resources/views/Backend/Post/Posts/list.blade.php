@@ -17,8 +17,8 @@
         <tr>
             <td>{{$key+1}}</td>
             <td>{{$value->post_pick_up_time}}</td>
-            <td>{{$value->post_pick_up_address}}</td>
-            <td>{{$value->post_pick_drop_address}}</td>
+            <td>{{$value->pick_up_address->division->division_name}},{{$value->pick_up_address->district->district_name}},{{$value->pick_up_address->upzilla->upzilla_name}},{{$value->pick_up_address->home_address}}</td>
+            <td>{{$value->pick_down_address->division->division_name}},{{$value->pick_down_address->district->district_name}},{{$value->pick_down_address->upzilla->upzilla_name}},{{$value->pick_down_address->home_address}}</td>
             <td>{{$value->accessory_weight}}</td>
             <td>{{$value->description}}</td>
             <td>

@@ -7,6 +7,8 @@ use App\Division;
 use App\District;
 use App\Upzilla;
 use App\Truck;
+use App\PostPickUpModel;
+use App\PostPickDownModel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
@@ -20,12 +22,12 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $truck = Truck::all(); 
+        $truck = Truck::all();
         return view('Backend.Post.Posts.posts_list',[
         'truck' => $truck,
         ]);
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -49,7 +51,13 @@ class PostsController extends Controller
              if ($request->search) {
                  $posts->where('post_id', 'LIKE', '%' . $request->search . '%');
              }
-         })->paginate(10);
+         })->with("pick_up_address.division")
+             ->with("pick_up_address.district")
+             ->with("pick_up_address.upzilla")
+             ->with("pick_down_address.division")
+             ->with("pick_down_address.district")
+             ->with("pick_down_address.upzilla")
+             ->paginate(10);
          return view('Backend.Post.Posts.list', [
              'posts' => $posts,
          ]);
@@ -63,24 +71,26 @@ class PostsController extends Controller
      */
     public function store(PostRequest $request)
     {
-         $posts_model = new Posts();
+        $posts_model = new Posts();
+        $posts_model->fill($request->all())->save();
 
-         $division1 = Division::where('division_id', $request->division_name1)->first();
-         $district1 = District::where('district_id', $request->district_name1)->first();
-         $upzilla1 = Upzilla::where('upzilla_id', $request->upzilla_name1)->first();
+        $post_pick_up_model = new PostPickUpModel();
+        $post_pick_up_model->post_id = $posts_model->post_id;
+        $post_pick_up_model->division_id = $request->division_name1;
+        $post_pick_up_model->district_id = $request->district_name1;
+        $post_pick_up_model->upzilla_id = $request->upzilla_name1;
+        $post_pick_up_model->home_address = $request->home_address1;
+        $post_pick_up_model->save();
 
-         $division2 = Division::where('division_id', $request->division_name2)->first();
-         $district2 = District::where('district_id', $request->district_name2)->first();
-         $upzilla2 = Upzilla::where('upzilla_id', $request->upzilla_name2)->first();
+        $post_pick_down_model = new PostPickDownModel();
+        $post_pick_down_model->post_id = $posts_model->post_id;
+        $post_pick_down_model->division_id = $request->division_name2;
+        $post_pick_down_model->district_id = $request->district_name2;
+        $post_pick_down_model->upzilla_id = $request->upzilla_name2;
+        $post_pick_down_model->home_address = $request->home_address2;
+        $post_pick_down_model->save();
 
-         $posts_model->post_pick_up_time = $request->post_pick_up_time;
-         $posts_model->post_pick_up_address = $division1->division_name . "," . $district1->district_name . "," . $upzilla1->upzilla_name . "," . $request->home_address1;
-         $posts_model->post_pick_drop_address = $division2->division_name . "," . $district2->district_name . "," . $upzilla2->upzilla_name . "," . $request->home_address2;
-         $posts_model->accessory_weight = $request->accessory_weight . "kg";
-         $posts_model->description = $request->description;
-         $posts_model->save();
-
-         return view('Backend.Post.Posts.posts_list');
+         return back();
     }
 
     /**
@@ -138,6 +148,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
+        PostPickUpModel::where("post_id", $id)->delete();
+        PostPickDownModel::where("post_id", $id)->delete();
         $posts = Posts::findOrFail($id)->delete();
         return response()->json($posts, 202);
     }
