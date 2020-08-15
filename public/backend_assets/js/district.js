@@ -3,9 +3,6 @@ $(document).ready(function () {
     $(document).on("submit", "#district_form", function (e) {
         e.preventDefault();
         let data = $(this).serializeArray();
-        $.each(data, function (key, value) {
-            $("#" + data[key].name).html("");
-        })
         $.ajax({
             url: "/admin/district/store",
             data: data,
@@ -18,17 +15,11 @@ $(document).ready(function () {
                 $("#district_form").trigger("reset");
             },
             error: function (error) {
-                if (error.status === 422) {
-                    toastr.warning("Field is empty", "Warning!");
-                } else {
-                    toastr.error("Application errors", "Error!");
-                }
-                $.each(error.responseJSON.errors, function (i, value) {
-                    $("#" + i).html(value[0]);
-                })
+                console.log(error);
             }
         })
     });
+
     $(document).on("click", ".delete", function () {
         let data = $(this).attr("data");
 
@@ -42,7 +33,7 @@ $(document).ready(function () {
         .then((willDelete) => {
             if (willDelete) {
                 $.ajax({
-                    url: "/admin/district/" + data,
+                    url: "/admin/district/"+data,
                     type: "delete",
                     dataType: "json",
                     success: function (response) {
@@ -51,7 +42,7 @@ $(document).ready(function () {
                     }
                 })
             } else {
-                swal("Your imaginary District data is safe!");
+                swal("Your imaginary sub district data is safe!");
             }
         });
     });
@@ -60,7 +51,7 @@ $(document).ready(function () {
         let data = $(this).attr("data");
 
         $.ajax({
-            url: "/admin/district/show/" + data,
+            url: "/admin/district/show/"+data,
             type: "get",
             dataType: "json",
             success: function (response) {
@@ -78,10 +69,11 @@ $(document).ready(function () {
         let data = $(this).attr("data");
 
         $.ajax({
-            url: "/admin/district/" + data + "/edit",
+            url: "/admin/district/"+data+"/edit",
             type: "get",
             dataType: "json",
             success: function (response) {
+                console.log(response);
                 $("#e_division_name").val(response.division_name);
                 $("#e_district_name").val(response.district_name);
                 $("#e_description").val(response.description);
@@ -92,17 +84,13 @@ $(document).ready(function () {
 
     $(document).on("submit", "#district_update_form", function (e) {
         e.preventDefault();
-        let id = $("#district_id").val();
+        let id = $(this).attr("#district_id");
         let data = $(this).serializeArray();
-        $.each(data, function (key, value) {
-            $("#e_" + data[key].name).html("");
-            console.log(data[key].name);
-        })
-
+        console.log(id);
         $.ajax({
-            url: "/admin/district/" + id,
+            url: "/admin/district/update",
             data: data,
-            type: "put",
+            type: "post",
             dataType: "json",
             success: function (response) {
                 datalist();
@@ -111,15 +99,7 @@ $(document).ready(function () {
                 $("#district_update_form").trigger("reset");
             },
             error: function (error) {
-                if (error.status === 422) {
-                    toastr.warning("Field is empty", "Warning!");
-                } else {
-                    toastr.error("Application errors", "Error!");
-                }
-                console.log(error.responseJSON.errors);
-                $.each(error.responseJSON.errors, function (i, value) {
-                    $("#u_" + i).html(value[0]);
-                })
+                console.log(error);
             }
         })
     });

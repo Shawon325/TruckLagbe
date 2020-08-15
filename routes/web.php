@@ -21,6 +21,7 @@ Route::prefix('admin')->group(function () {
         //District
         Route::resource('/district', 'DistrictController');
         Route::post('/district/store', 'DistrictController@store');
+        Route::post('/district/update', 'DistrictController@update');
         Route::get('/district/show/{id}', 'DistrictController@show');
         //Upzilla
         Route::resource('/upzilla', 'UpzillaController');
