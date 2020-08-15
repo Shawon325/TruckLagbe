@@ -1,9 +1,9 @@
 <?php
 Auth::routes();
-
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/', 'FrontEndController@index');
+//Route::get('/login', function () {
+//    return view('auth.login');
+//});
 
 //Route::get('/admin', function () {
 //    return view('Backend.dashboard');
@@ -11,14 +11,14 @@ Route::get('/', function () {
 
 Route::get('/admin', 'HomeController@index');
 
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->group(function () {
     Route::middleware('auth')->group(function () {
         // Division
         Route::resource('/division', 'DivisionController');
         Route::post('/division/store', 'DivisionController@store');
         Route::post('/division/update', 'DivisionController@update');
         Route::get('/division/show/{id}', 'DivisionController@show');
-         //District
+        //District
         Route::resource('/district', 'DistrictController');
         Route::post('/district/store', 'DistrictController@store');
         Route::get('/district/show/{id}', 'DistrictController@show');
@@ -44,9 +44,5 @@ Route::prefix('admin')->group(function(){
         Route::get('/list', 'PostsController@list');
         Route::get('/posts/show/{id}', 'PostsController@show');
         Route::get('/posts/bidAdd/{post_id}', 'PostsController@bidAdd');
-
-
-
-
     });
 });
