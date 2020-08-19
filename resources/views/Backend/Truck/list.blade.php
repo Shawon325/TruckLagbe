@@ -4,7 +4,7 @@
         <th>#</th>
         <th>Truck Number</th>
         <th>Ton</th>
-        <th>Address</th>
+{{--        <th>Address</th>--}}
         <th>Status</th>
         <th>Action</th>
     </tr>
@@ -16,7 +16,7 @@
             <td>{{$key+1}}</td>
             <td>{{$value->truck_number}}</td>
             <td>{{$value->truck_ton->ton_number}}</td>
-            <td>{{$value->address}}</td>
+{{--            <td>{{$value->address}}</td>--}}
             <td>
                 @if ($value->status == 1)
                     <span class="text-success">Active</span>

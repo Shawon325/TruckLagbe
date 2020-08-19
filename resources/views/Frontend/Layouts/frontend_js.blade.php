@@ -13,3 +13,6 @@
 
 <!-- Template Main JS File -->
 <script src="frontend_assets/assets/js/main.js"></script>
+{{--data get--}}
+{{--<script src="frontend_assets/assets/js/frontend.js"></script>--}}
+@yield('front_script')

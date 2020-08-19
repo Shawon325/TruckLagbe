@@ -19,10 +19,10 @@
     @include('Frontend.pages.about')
     @include('Frontend.pages.post')
     @include('Frontend.pages.client')
-    @include('Frontend.pages.service')
-    @include('Frontend.pages.portfolio')
-    @include('Frontend.pages.team')
-    @include('Frontend.pages.contact')
+{{--    @include('Frontend.pages.service')--}}
+{{--    @include('Frontend.pages.portfolio')--}}
+{{--    @include('Frontend.pages.team')--}}
+{{--    @include('Frontend.pages.contact')--}}
 </main><!-- End #main -->
 @include('Frontend.Layouts.footer')
 <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>

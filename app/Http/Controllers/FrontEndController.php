@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Posts;
 use Illuminate\Http\Request;
 
 class FrontEndController extends Controller
@@ -14,6 +15,12 @@ class FrontEndController extends Controller
     public function index()
     {
         return view("Frontend.Layouts.head");
+    }
+
+    public function get_post()
+    {
+        $post = Posts::limit(6)->get();
+        return response()->json($post, 201);
     }
 
     /**

@@ -23,8 +23,8 @@ class PostsController extends Controller
     public function index()
     {
         $truck = Truck::all();
-        return view('Backend.Post.Posts.posts_list',[
-        'truck' => $truck,
+        return view('Backend.Post.Posts.posts_list', [
+            'truck' => $truck,
         ]);
     }
 
@@ -39,40 +39,45 @@ class PostsController extends Controller
         $district = District::all();
         $upzilla = Upzilla::all();
 
-        return view('Backend.Post.Posts.add_posts',[
+        return view('Backend.Post.Posts.add_posts', [
             'division' => $division,
             'district' => $district,
             'upzilla' => $upzilla,
         ]);
     }
-     public function list(Request $request)
-     {
-         $posts = Posts::where(function ($posts) use ($request) {
-             if ($request->search) {
-                 $posts->where('post_id', 'LIKE', '%' . $request->search . '%');
-             }
-         })->with("pick_up_address.division")
-             ->with("pick_up_address.district")
-             ->with("pick_up_address.upzilla")
-             ->with("pick_down_address.division")
-             ->with("pick_down_address.district")
-             ->with("pick_down_address.upzilla")
-             ->paginate(10);
-         return view('Backend.Post.Posts.list', [
-             'posts' => $posts,
-         ]);
-     }
+
+    public function list(Request $request)
+    {
+        $posts = Posts::where(function ($posts) use ($request) {
+            if ($request->search) {
+                $posts->where('post_id', 'LIKE', '%' . $request->search . '%');
+            }
+        })->with("pick_up_address.division")
+            ->with("pick_up_address.district")
+            ->with("pick_up_address.upzilla")
+            ->with("pick_down_address.division")
+            ->with("pick_down_address.district")
+            ->with("pick_down_address.upzilla")
+            ->paginate(10);
+        return view('Backend.Post.Posts.list', [
+            'posts' => $posts,
+        ]);
+    }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(PostRequest $request)
     {
         $posts_model = new Posts();
-        $posts_model->fill($request->all())->save();
+
+        $posts_model->post_pick_up_time = $request->post_pick_up_time . ' ' . $request->post_time_period;
+        $posts_model->accessory_weight = $request->accessory_weight;
+        $posts_model->description = $request->description;
+        $posts_model->save();
 
         $post_pick_up_model = new PostPickUpModel();
         $post_pick_up_model->post_id = $posts_model->post_id;
@@ -90,13 +95,13 @@ class PostsController extends Controller
         $post_pick_down_model->home_address = $request->home_address2;
         $post_pick_down_model->save();
 
-         return back();
+        return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Posts  $posts
+     * @param \App\Posts $posts
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -115,7 +120,7 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Posts  $posts
+     * @param \App\Posts $posts
      * @return \Illuminate\Http\Response
      */
     public function edit(Posts $posts)
@@ -131,8 +136,8 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Posts  $posts
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Posts $posts
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Posts $posts)
@@ -143,7 +148,7 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Posts  $posts
+     * @param \App\Posts $posts
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

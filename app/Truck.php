@@ -8,7 +8,7 @@ class Truck extends Model
 {
     protected $table = "trucks";
     protected $primaryKey = "truck_id";
-    protected $fillable = ["truck_number", "ton", "address", "has_image", "status"];
+    protected $fillable = ["truck_number", "ton", "has_image", "status"];
 
     public function scopeActive($query)
     {

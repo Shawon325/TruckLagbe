@@ -1,6 +1,7 @@
 <?php
 Auth::routes();
 Route::get('/', 'FrontEndController@index');
+Route::get("get_post", "FrontEndController@get_post");
 //Route::get('/login', function () {
 //    return view('auth.login');
 //});
