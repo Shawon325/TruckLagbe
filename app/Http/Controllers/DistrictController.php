@@ -34,10 +34,14 @@ class DistrictController extends Controller
     public function create(Request $request)
     {
         $division = Division::active()->get();
-        $district = District::search($request->search)->paginate(10);
+        $district = District::where(function ($district) use ($request) {
+            if ($request->search) {
+                $district->where('district_name', 'LIKE', '%' . $request->search . '%');
+            }
+        })->paginate(10);
         return view('Backend.Setting.District.list', [
-            'district' => $district,
-            'division' => $division
+            'division' => $division,
+            'district' => $district
         ]);
     }
 
@@ -47,11 +51,26 @@ class DistrictController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(DistrictRequest $request)
+    public function store(Request $request)
     {
-        $district_model = new District();
-        $district_model->fill($request->all())->save();
-        return response()->json($district_model, 201);
+        $$district_model = new District();
+        $validation = Validator::make($request->all(), $district_model->validation());
+        if ($validation->fails()) {
+            $status = 400;
+            $response = [
+                "status" => $status,
+                "errors" => $validation->errors(),
+            ];
+        }
+        else {
+            $district_model->fill($request->all())->save();
+            $status = 201;
+            $response = [
+                "status" => $status,
+                "errors" => $validation->errors(),
+            ];
+        }
+        return response()->json($response, $status);
     }
 
     /**
@@ -92,11 +111,25 @@ class DistrictController extends Controller
      * @param  \App\District  $district
      * @return \Illuminate\Http\Response
      */
-    public function update(DistrictRequest $request, $id)
+    public function update(Request $request)
     {
-        $district_model = District::findOrFail($id);
-        $district_model->fill($request->all())->save();
-        return response()->json($district_model, 201);
+        $district_model = District::findOrFail($request->district_id);
+        $validation = Validator::make($request->all(), $district_model->validation());
+        if ($validation->fails()) {
+            $status = 400;
+            $response = [
+                "status" => $status,
+                "errors" => $validation->errors(),
+            ];
+        } else {
+            $district_model->fill($request->all())->save();
+            $status = 201;
+            $response = [
+                "status" => $status,
+                "errors" => $validation->errors(),
+            ];
+        }
+        return response()->json($response, $status);
     }
 
     /**
