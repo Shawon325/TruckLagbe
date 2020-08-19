@@ -2,7 +2,11 @@
 <section class="about-lists">
     <div class="container">
 
-        <div class="row no-gutters">
+        <div class="section-title">
+            <h2>Posts</h2>
+        </div>
+
+        <div class="row no-gutters" id="post">
 
             <div class="col-lg-4 col-md-6 content-item" data-aos="fade-up">
                 <span>01</span>
@@ -48,3 +52,6 @@
 
     </div>
 </section><!-- End About Lists Section -->
+@section('front_script')
+    <script src="frontend_assets/assets/js/frontend.js"></script>
+@endsection

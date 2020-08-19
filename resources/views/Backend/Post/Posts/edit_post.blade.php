@@ -1,5 +1,5 @@
 @extends('Backend.layouts.backend_head')
-@section('title', '|| Add Posts')
+@section('title', '|| Edit Posts')
 @section('head', 'Posts')
 @section('head_name', 'Dashboard')
 @section('sub_name', 'Add Posts')
@@ -11,18 +11,12 @@
             <div class="panel-body">
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-12">
                             <label>Pick Up Time:</label>
-                            <input type="text" class="form-control" id="post_pick_up_time" name="post_pick_up_time" placeholder="time...">
+                            <input type="time" class="form-control" id="post_pick_up_time" name="post_pick_up_time" >
                             @if($errors->first('post_pick_up_time'))
                                 <label for="post_pick_up_time" class="error">{{$errors->first('post_pick_up_time')}}</label>
                             @endif
-                        </div>
-                        <div class="col-md-3" style="margin-top: 21px;">
-                            <select class="form-control" name="post_time_period">
-                                <option value="am">AM</option>
-                                <option value="pm">PM</option>
-                            </select>
                         </div>
                     </div>
                 </div>
@@ -64,7 +58,7 @@
                             <select class="select-full" name="division_name1" id="division_name1">
                                 <option value="" selected>Select One</option>
                                 @foreach($division as $value)
-                                <option value="{{$value->division_id}}">{{$value->division_name}}</option>
+                                    <option value="{{$value->division_id}}">{{$value->division_name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -116,7 +110,7 @@
                             <select class="select-full" name="division_name2" id="division_name2">
                                 <option value="" selected>Select One</option>
                                 @foreach($division as $value)
-                                <option value="{{$value->division_id}}">{{$value->division_name}}</option>
+                                    <option value="{{$value->division_id}}">{{$value->division_name}}</option>
                                 @endforeach
                             </select>
                         </div>

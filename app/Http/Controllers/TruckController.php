@@ -72,14 +72,14 @@ class TruckController extends Controller
     public function store(TruckRequest $request)
     {
         DB::beginTransaction();
-        $division = Division::where('division_id', $request->division_name)->first();
-        $district = District::where('district_id', $request->district_name)->first();
-        $upzilla = Upzilla::where('upzilla_id', $request->upzilla_name)->first();
+//        $division = Division::where('division_id', $request->division_name)->first();
+//        $district = District::where('district_id', $request->district_name)->first();
+//        $upzilla = Upzilla::where('upzilla_id', $request->upzilla_name)->first();
 
         $truck_model = new Truck();
         $truck_model->truck_number = $request->truck_number;
         $truck_model->ton = $request->ton;
-        $truck_model->address = $division->division_name . "," . $district->district_name . "." . $upzilla->upzilla_name . "," . $request->home_address;
+//        $truck_model->address = $division->division_name . "," . $district->district_name . "." . $upzilla->upzilla_name . "," . $request->home_address;
         $truck_model->has_image = $request->images != '' ? 1 : 0;
         $truck_model->save();
 

@@ -40,63 +40,63 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label>Division Name:</label>
-                            <select class="select-full" name="division_name" id="division_name">
-                                <option value="" selected>Select One</option>
-                                @foreach($division as $value)
-                                <option value="{{$value->division_id}}">{{$value->division_name}}</option>
-                                @endforeach
-                            </select>
-                            @if($errors->first('division_name'))
-                                <label for="division_name" class="error">{{$errors->first('division_name')}}</label>
-                            @endif
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="form-group">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-12">--}}
+{{--                            <label>Division Name:</label>--}}
+{{--                            <select class="select-full" name="division_name" id="division_name">--}}
+{{--                                <option value="" selected>Select One</option>--}}
+{{--                                @foreach($division as $value)--}}
+{{--                                <option value="{{$value->division_id}}">{{$value->division_name}}</option>--}}
+{{--                                @endforeach--}}
+{{--                            </select>--}}
+{{--                            @if($errors->first('division_name'))--}}
+{{--                                <label for="division_name" class="error">{{$errors->first('division_name')}}</label>--}}
+{{--                            @endif--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label>District Name:</label>
-                            <select class="select-full" name="district_name" id="district_name">
-                                <option value="" selected>Select One</option>
-                            </select>
-                            @if($errors->first('district_name'))
-                                <label for="district_name" class="error">{{$errors->first('district_name')}}</label>
-                            @endif
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="form-group">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-12">--}}
+{{--                            <label>District Name:</label>--}}
+{{--                            <select class="select-full" name="district_name" id="district_name">--}}
+{{--                                <option value="" selected>Select One</option>--}}
+{{--                            </select>--}}
+{{--                            @if($errors->first('district_name'))--}}
+{{--                                <label for="district_name" class="error">{{$errors->first('district_name')}}</label>--}}
+{{--                            @endif--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label>Upzilla Name:</label>
-                            <select class="select-full" name="upzilla_name" id="upzilla_name">
-                                <option value="" selected>Select One</option>
-                            </select>
-                            @if($errors->first('upzilla_name'))
-                                <label for="upzilla_name" class="error">{{$errors->first('upzilla_name')}}</label>
-                            @endif
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="form-group">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-12">--}}
+{{--                            <label>Upzilla Name:</label>--}}
+{{--                            <select class="select-full" name="upzilla_name" id="upzilla_name">--}}
+{{--                                <option value="" selected>Select One</option>--}}
+{{--                            </select>--}}
+{{--                            @if($errors->first('upzilla_name'))--}}
+{{--                                <label for="upzilla_name" class="error">{{$errors->first('upzilla_name')}}</label>--}}
+{{--                            @endif--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <label>Home Address:</label>
-                            <input type="text" class="form-control" name="home_address" id="home_address" placeholder="Home Address"
-                                   value="{{old('home_address')}}">
-                            @if($errors->first('home_address'))
-                                <label for="home_address" class="error">{{$errors->first('home_address')}}</label>
-                            @endif
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="form-group">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-md-12">--}}
+{{--                            <label>Home Address:</label>--}}
+{{--                            <input type="text" class="form-control" name="home_address" id="home_address" placeholder="Home Address"--}}
+{{--                                   value="{{old('home_address')}}">--}}
+{{--                            @if($errors->first('home_address'))--}}
+{{--                                <label for="home_address" class="error">{{$errors->first('home_address')}}</label>--}}
+{{--                            @endif--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
                 <div class="form-group">
                     <div class="row">
