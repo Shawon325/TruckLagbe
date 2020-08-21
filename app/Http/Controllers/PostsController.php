@@ -73,10 +73,11 @@ class PostsController extends Controller
     public function store(PostRequest $request)
     {
         $posts_model = new Posts();
-
+        $posts_model->assign_date = $request->assign_date;
         $posts_model->post_pick_up_time = $request->post_pick_up_time . ' ' . $request->post_time_period;
         $posts_model->accessory_weight = $request->accessory_weight;
         $posts_model->description = $request->description;
+        $posts_model->budget = $request->budget;
         $posts_model->save();
 
         $post_pick_up_model = new PostPickUpModel();

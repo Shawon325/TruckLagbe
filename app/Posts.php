@@ -8,7 +8,7 @@ class Posts extends Model
 {
     protected $table = "posts";
     protected $primaryKey = "post_id";
-    protected $fillable = ["post_pick_up_time", "post_pick_up_address", "post_pick_drop_address", "accessory_weight", "description", "status"];
+    protected $fillable = ["assign_date", "post_pick_up_time", "post_pick_up_address", "post_pick_drop_address", "accessory_weight", "description", "budget", "status"];
 
     public function scopeActive($query)
     {
