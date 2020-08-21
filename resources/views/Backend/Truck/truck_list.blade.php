@@ -10,13 +10,13 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h5 class="modal-title">EDIT DISTRICT</h5>
+                        <h5 class="modal-title">Truck Image</h5>
                     </div>
                     <div class="panel-body">
 
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-lg-6 col-md-6">
+                                <div class="col-lg-12 col-md-12">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row" id="blah"></div>
@@ -26,8 +26,6 @@
                                 </div>
                             </div>
                         </div>
-
-
 
                     </div>
                 </div>

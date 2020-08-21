@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Division;
-use App\District; 
+use App\District;
 use App\Http\Requests\DistrictRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -53,7 +53,7 @@ class DistrictController extends Controller
      */
     public function store(Request $request)
     {
-        $$district_model = new District();
+        $district_model = new District();
         $validation = Validator::make($request->all(), $district_model->validation());
         if ($validation->fails()) {
             $status = 400;
