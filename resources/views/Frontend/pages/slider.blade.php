@@ -7,12 +7,28 @@
 
             <div class="carousel-inner" role="listbox">
 
+{{--                <!-- Slide 1 -->--}}
+{{--                <div class="carousel-item active"--}}
+{{--                     style="background-image: url('frontend_assets/assets/img/slide/trucklagbe05.jpg');">--}}
+{{--                    <div class="carousel-container">--}}
+{{--                        <div class="carousel-content container">--}}
+{{--                            <h2 class="animate__animated animate__fadeInDown">Enabling businesses with effortless logistics</h2>--}}
+{{--                            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui--}}
+{{--                                aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem--}}
+{{--                                mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti--}}
+{{--                                vel. Minus et tempore modi architecto.</p>--}}
+{{--                            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read--}}
+{{--                                More</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
                 <!-- Slide 1 -->
                 <div class="carousel-item active"
                      style="background-image: url('frontend_assets/assets/img/slide/trucklagbe01.jpg');">
                     <div class="carousel-container">
                         <div class="carousel-content container">
-                            <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Truck Lagbe</span></h2>
+                            <h2 class="animate__animated animate__fadeInDown">Enabling businesses with effortless logistics</h2>
                             <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
                                 aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
                                 mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
@@ -28,7 +44,7 @@
                      style="background-image: url('frontend_assets/assets/img/slide/trucklagbe03.jpg');">
                     <div class="carousel-container">
                         <div class="carousel-content container">
-                            <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Truck Lagbe</span></h2>
+                            <h2 class="animate__animated animate__fadeInDown">First Truck Booking</h2>
                             <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
                                 aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
                                 mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
@@ -44,7 +60,7 @@
                      style="background-image: url('frontend_assets/assets/img/slide/trucklagbe04.jpg');">
                     <div class="carousel-container">
                         <div class="carousel-content container">
-                            <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Truck Lagbe</span></h2>
+                            <h2 class="animate__animated animate__fadeInDown">Stay Safe</h2>
                             <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
                                 aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
                                 mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
