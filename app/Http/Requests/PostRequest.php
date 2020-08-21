@@ -24,9 +24,11 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
+            'assign_date' => 'required',
             'post_pick_up_time' => 'required',
             'accessory_weight' => 'required',
             'description'   => 'required',
+            'budget'   => 'required',
         ];
     }
 }

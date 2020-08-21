@@ -16,10 +16,10 @@
 </header><!-- End Header -->
 @include('Frontend.pages.slider')
 <main id="main">
-    @include('Frontend.pages.about')
     @include('Frontend.pages.post')
     @include('Frontend.pages.client')
-{{--    @include('Frontend.pages.service')--}}
+    @include('Frontend.pages.about')
+    {{--    @include('Frontend.pages.service')--}}
 {{--    @include('Frontend.pages.portfolio')--}}
 {{--    @include('Frontend.pages.team')--}}
 {{--    @include('Frontend.pages.contact')--}}
