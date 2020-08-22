@@ -14,13 +14,19 @@ class FrontEndController extends Controller
      */
     public function index()
     {
-        return view("Frontend.Layouts.head");
+        return view("Frontend.pages.home");
     }
 
     public function get_post()
     {
         $post = Posts::limit(6)->get();
         return response()->json($post, 201);
+    }
+
+    public function all_post()
+    {
+        $post = Posts::get();
+        return view("Frontend.Section.post", ["post" => $post]);
     }
 
     /**
@@ -36,7 +42,7 @@ class FrontEndController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -47,7 +53,7 @@ class FrontEndController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -58,7 +64,7 @@ class FrontEndController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -69,8 +75,8 @@ class FrontEndController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -81,7 +87,7 @@ class FrontEndController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
