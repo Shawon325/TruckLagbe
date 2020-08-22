@@ -14,16 +14,8 @@
 <header id="header">
     @include('Frontend.Layouts.nav')
 </header><!-- End Header -->
-@include('Frontend.pages.slider')
-<main id="main">
-    @include('Frontend.pages.post')
-    @include('Frontend.pages.client')
-    @include('Frontend.pages.about')
-    {{--    @include('Frontend.pages.service')--}}
-{{--    @include('Frontend.pages.portfolio')--}}
-{{--    @include('Frontend.pages.team')--}}
-{{--    @include('Frontend.pages.contact')--}}
-</main><!-- End #main -->
+@yield('main_content')
+
 @include('Frontend.Layouts.footer')
 <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 @include('Frontend.Layouts.frontend_js')
