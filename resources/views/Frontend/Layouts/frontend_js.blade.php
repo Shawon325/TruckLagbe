@@ -13,6 +13,8 @@
 
 <!-- Template Main JS File -->
 <script src="{{asset('frontend_assets/assets/js/main.js')}}"></script>
+{{--Fontawesome--}}
+<script src="https://kit.fontawesome.com/c22ccada56.js" crossorigin="anonymous"></script>
 {{--data get--}}
 {{--<script src="frontend_assets/assets/js/frontend.js"></script>--}}
 @yield('front_script')
