@@ -1,5 +1,5 @@
 <?php
-Auth::routes();
+Auth::routes(); 
 Route::get('/', 'FrontEndController@index');
 Route::get("get_post", "FrontEndController@get_post");
 Route::get("/all_post", "FrontEndController@all_post");
