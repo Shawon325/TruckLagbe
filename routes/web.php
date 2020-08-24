@@ -1,5 +1,5 @@
 <?php
-Auth::routes(); 
+Auth::routes();
 Route::get('/', 'FrontEndController@index');
 Route::get("get_post", "FrontEndController@get_post");
 Route::get("/all_post", "FrontEndController@all_post");
@@ -48,5 +48,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/list', 'PostsController@list');
         Route::get('/posts/show/{id}', 'PostsController@show');
         Route::get('/posts/bidAdd/{post_id}', 'PostsController@bidAdd');
+        //General Setting
+        Route::resource("/general_setting", "GeneralSettingController");
     });
 });
