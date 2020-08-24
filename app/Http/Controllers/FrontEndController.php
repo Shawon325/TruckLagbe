@@ -19,19 +19,19 @@ class FrontEndController extends Controller
 
     public function get_post()
     {
-        $post = Posts::where("status", 0)->limit(6)->get();
+        $post = Posts::where("status", 1)->limit(6)->get();
         return response()->json($post, 201);
     }
 
     public function all_post()
     {
-        $post = Posts::where("status", 0)->get();
+        $post = Posts::where("status", 1)->get();
         return view("Frontend.Section.post", ["post" => $post]);
     }
 
     public function view_post($id)
     {
-        $view_post = Posts::where("post_id", $id)->where("status", 0)
+        $view_post = Posts::where("post_id", $id)->where("status", 1)
             ->with("pick_up_address.division")
             ->with("pick_up_address.district")
             ->with("pick_up_address.upzilla")
