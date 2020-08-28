@@ -11,6 +11,12 @@
             <li class="active"><a href="/">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="{{url('/all_post')}}">Post</a></li>
+            @auth()
+                <li><a href="{{url('/admin')}}">Go to panel</a></li>
+            @endauth
+            @guest()
+                <li><a href="{{url('/login')}}">Login</a></li>
+            @endguest
         </ul>
     </nav><!-- .nav-menu -->
 </div>

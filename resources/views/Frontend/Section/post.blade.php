@@ -16,8 +16,13 @@
                         <h4>{{$value->assign_date}}</h4>
                         <h5>{{$value->post_pick_up_time}}</h5>
                         <p>{{$value->description}}</p>
-                        <button class="btn btn-dark"><a href="{{url('view_post' , $value->post_id)}}">More</a>
-                        </button>
+                        @auth()
+                            <button class="btn btn-dark"><a href="{{url('view_post' , $value->post_id)}}">More</a>
+                            </button>
+                        @endauth
+                        @guest()
+                            <button class="btn btn-dark"><a href="/login">Login</a></button>
+                        @endguest
                     </div>
                 @endforeach
 
