@@ -54,6 +54,10 @@ Route::prefix('admin')->group(function () {
         Route::resource("/post_bid", "PostBidController");
         Route::post("/post_bid/store", "PostBidController@store");
         Route::get('/post_bid/show/{id}', 'PostBidController@show');
+        //RBAC
+        //Role
+        Route::resource("/role", "RoleController");
+        Route::post("/role/store", "RoleController@store");
     });
     //Related Controller
     Route::get('/getDivision', 'RelatedController@getDivision');
