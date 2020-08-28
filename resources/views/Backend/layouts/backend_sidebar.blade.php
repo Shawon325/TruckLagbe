@@ -1,8 +1,18 @@
 <div class="sidebar">
     <div class="sidebar-content">
         <ul class="navigation">
-            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"><a
-                    href="{{ url('/admin') }}"><span>Dashboard</span> <i class="icon-screen2"></i></a></li>
+            <li class="{{ (request()->is('admin')) ? 'active' : '' }}">
+                <a href="{{ url('/admin') }}"><span>Dashboard</span> <i class="icon-screen2"></i></a>
+            </li>
+            <li>
+                <a href="#"><span>RBAC</span> <i class="icon-user-plus"></i></a>
+                <ul>
+                    <li class="{{ (request()->is('admin/role')) ? 'active' : '' }}"><a
+                            href="{{url('/admin/role')}}">Role</a></li>
+                    <li class="{{ (request()->is('admin/district')) ? 'active' : '' }}"><a
+                            href="{{url('/admin/district')}}">Permission</a></li>
+                </ul>
+            </li>
             <li>
                 <a href="#"><span>Address Setting</span> <i class="icon-location4"></i></a>
                 <ul>
