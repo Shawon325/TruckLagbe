@@ -108,7 +108,12 @@
                                 <input class="form-control" type="text" name="truck_number"
                                        placeholder="Enter truck number....">
                             </div>
-                            <br>
+
+                            <div class="form-group">
+                                <label class="form-group">Phone Number:</label>
+                                <input class="form-control" type="text" name="phone_number"
+                                       placeholder="Enter truck number....">
+                            </div>
                             <div class="form-group">
                                 <label class="form-group">Bid Amount:</label>
                                 <input class="form-control" type="number" name="bid_amount" value="0">

@@ -50,5 +50,9 @@ Route::prefix('admin')->group(function () {
         Route::get('/posts/bidAdd/{post_id}', 'PostsController@bidAdd');
         //General Setting
         Route::resource("/general_setting", "GeneralSettingController");
+        //Related Controller
     });
+    Route::get('/getDivision', 'RelatedController@getDivision');
+    Route::get('/getDistrict/{division_id}', 'RelatedController@getDistrict');
+    Route::get('/getUpzilla/{district_id}', 'RelatedController@getUpzilla');
 });
