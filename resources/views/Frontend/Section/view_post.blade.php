@@ -8,8 +8,9 @@
                 <div class="row">
                     <div class="col-md-10"><h2><b>View Post</b></h2></div>
                     <div class="col-md-2">
-                        <button class="btn btn-info" data="{{$view_post->post_id}}" data-toggle="modal"
-                                data-target="#bidModal"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Action
+                        <button style="margin-left: -11px;" class="btn btn-info" data="{{$view_post->post_id}}"
+                                data-toggle="modal"
+                                data-target="#bidModal"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Bid Post
                         </button>
                     </div>
                 </div>
@@ -92,7 +93,7 @@
     </div>
     <br>
 
-    <form id="ton_form">
+    <form id="bid_form">
         <div id="bidModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -102,6 +103,8 @@
                     </div>
                     <div class="modal-body">
                         <div class="panel-body">
+
+                            <input class="form-control" type="hidden" name="post_id" value="{{$view_post->post_id}}">
 
                             <div class="form-group">
                                 <label class="form-group">Truck Number:</label>
@@ -122,12 +125,20 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="reset" class="btn btn-danger" id="close" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-dark">Bid</button>
+                        <button type="reset" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        @auth()
+                            <button type="submit" class="btn btn-dark">Bid</button>
+                        @endauth
+                        @guest()
+                            <button type="submit" class="btn btn-dark"><a href="/login">Login</a></button>
+                        @endguest
                     </div>
                 </div>
             </div>
         </div>
     </form>
 
+@endsection
+@section('front_script')
+    <script src="{{asset('frontend_assets/assets/js/frontend.js')}}"></script>
 @endsection

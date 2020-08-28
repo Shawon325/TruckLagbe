@@ -23,6 +23,9 @@
                             href="{{url('/admin/truck/create')}}">Add Truck</a></li>
                     <li class="{{ (request()->is('admin/truck')) ? 'active' : '' }}"><a href="{{url('/admin/truck')}}">Truck
                             List</a></li>
+                    <li class="{{ (request()->is('admin/post_bid')) ? 'active' : '' }}"><a
+                            href="{{url('/admin/post_bid')}}">Posts
+                            Bid</a></li>
                 </ul>
             </li>
             <li>

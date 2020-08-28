@@ -50,6 +50,10 @@
                 @endif
                 <button class="btn btn-info edit" data="{{$value->post_id}}" data-toggle="modal"
                         data-target="#editModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+
+                <a href="{{url('admin/posts/bidShow/'. $value->post_id)}}">
+                    <button class="btn btn-info edit"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                </a>
             </td>
         </tr>
     @endforeach

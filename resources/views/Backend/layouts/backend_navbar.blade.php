@@ -1,7 +1,8 @@
 <!-- Navbar -->
 <div class="navbar navbar-inverse" role="navigation">
     <div class="navbar-header">
-        <a class="navbar-brand" href="{{ url('/admin') }}"><img src="{{asset('backend_assets/images/23.png')}}" alt="Track Lagbe"></a>
+        <a class="navbar-brand" href="{{ url('/admin') }}"><img src="{{asset('backend_assets/images/23.png')}}"
+                                                                alt="Track Lagbe"></a>
         <a class="sidebar-toggle"><i class="icon-paragraph-justify2"></i></a>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-icons">
             <span class="sr-only">Toggle navbar</span>
@@ -139,17 +140,20 @@
                         <td class="text-center"><span class="label label-danger">18%</span></td>
                     </tr>
                     <tr>
-                        <td><span class="status status-info item-before"></span> <a href="#">Responsive layout changes</a></td>
+                        <td><span class="status status-info item-before"></span> <a href="#">Responsive layout
+                                changes</a></td>
                         <td><span class="text-smaller text-semibold">Layout</span></td>
                         <td class="text-center"><span class="label label-info">52%</span></td>
                     </tr>
                     <tr>
-                        <td><span class="status status-success item-before"></span> <a href="#">Add categories filter</a></td>
+                        <td><span class="status status-success item-before"></span> <a href="#">Add categories
+                                filter</a></td>
                         <td><span class="text-smaller text-semibold">Content</span></td>
                         <td class="text-center"><span class="label label-success">100%</span></td>
                     </tr>
                     <tr>
-                        <td><span class="status status-success item-before"></span> <a href="#">Media grid padding issue</a></td>
+                        <td><span class="status status-success item-before"></span> <a href="#">Media grid padding
+                                issue</a></td>
                         <td><span class="text-smaller text-semibold">Bugs</span></td>
                         <td class="text-center"><span class="label label-success">100%</span></td>
                     </tr>
@@ -167,10 +171,12 @@
                 <li><a href="#"><i class="icon-user"></i> Profile</a></li>
                 <li><a href="#"><i class="icon-bubble4"></i> Messages</a></li>
                 <li><a href="#"><i class="icon-cog"></i> Settings</a></li>
-                <form  action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button><i class="icon-exit"></i> Logout</button>
-                </form>
+                <li>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button><i class="icon-exit"></i> Logout</button>
+                    </form>
+                </li>
             </ul>
         </li>
     </ul>

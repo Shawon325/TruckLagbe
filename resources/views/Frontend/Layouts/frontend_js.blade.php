@@ -15,6 +15,14 @@
 <script src="{{asset('frontend_assets/assets/js/main.js')}}"></script>
 {{--Fontawesome--}}
 <script src="https://kit.fontawesome.com/c22ccada56.js" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
 {{--data get--}}
 {{--<script src="frontend_assets/assets/js/frontend.js"></script>--}}
 @yield('front_script')

@@ -19,13 +19,13 @@ class FrontEndController extends Controller
 
     public function get_post()
     {
-        $post = Posts::where("status", 1)->limit(6)->get();
+        $post = Posts::where("status", 1)->where("assign_date", ">=", date('y-m-d'))->limit(6)->get();
         return response()->json($post, 201);
     }
 
     public function all_post()
     {
-        $post = Posts::where("status", 1)->get();
+        $post = Posts::where("status", 1)->where("assign_date", ">=", date('y-m-d'))->get();
         return view("Frontend.Section.post", ["post" => $post]);
     }
 
