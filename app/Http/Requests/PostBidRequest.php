@@ -25,10 +25,8 @@ class PostBidRequest extends FormRequest
     {
         return [
             'post_id' => 'required',
-            'truck_driver_id' => 'required',
             'truck_number' => 'required',
             'bid_amount' => 'required',
-            'status' => 'required',
         ];
     }
 }

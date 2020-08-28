@@ -1,6 +1,26 @@
 $(document).ready(function () {
     getPost();
 
+    $(document).on("submit", "#bid_form", function (e) {
+        e.preventDefault();
+        let data = $(this).serializeArray();
+        $.ajax({
+            url: "/admin/post_bid/store",
+            data: data,
+            type: "post",
+            dataType: "json",
+            success: function (response) {
+                console.log(response);
+                // toastr.success("Upzilla data added successfully", "Success!");
+                $(".close").click();
+                $("#bid_form").trigger("reset");
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        })
+    });
+
     function getPost() {
         $.ajax({
             url: "/get_post",

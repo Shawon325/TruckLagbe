@@ -47,11 +47,15 @@ Route::prefix('admin')->group(function () {
         Route::resource('/posts', 'PostsController');
         Route::get('/list', 'PostsController@list');
         Route::get('/posts/show/{id}', 'PostsController@show');
-        Route::get('/posts/bidAdd/{post_id}', 'PostsController@bidAdd');
+        Route::get('/posts/bidShow/{post_id}', 'PostsController@bidShow');
         //General Setting
         Route::resource("/general_setting", "GeneralSettingController");
-        //Related Controller
+        // Post Bid
+        Route::resource("/post_bid", "PostBidController");
+        Route::post("/post_bid/store", "PostBidController@store");
+        Route::get('/post_bid/show/{id}', 'PostBidController@show');
     });
+    //Related Controller
     Route::get('/getDivision', 'RelatedController@getDivision');
     Route::get('/getDistrict/{division_id}', 'RelatedController@getDistrict');
     Route::get('/getUpzilla/{district_id}', 'RelatedController@getUpzilla');

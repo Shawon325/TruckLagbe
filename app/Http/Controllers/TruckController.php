@@ -9,6 +9,7 @@ use App\TruckImages;
 use App\Division;
 use App\District;
 use App\Upzilla;
+use Illuminate\Support\Facades\Auth;
 use Image;
 use Illuminate\Support\Facades\DB;
 use App\Http\Resources\TruckCollection;
@@ -57,7 +58,10 @@ class TruckController extends Controller
 
     public function truck_list(Request $request)
     {
-        $truck = Truck::search($request->search)->with("truck_ton")->paginate(10);
+        $truck = Truck::search($request->search)
+            ->where("created_by", Auth::user()->id)
+            ->with("truck_ton")
+            ->paginate(10);
         return view('Backend.Truck.list', [
             'truck' => $truck,
         ]);

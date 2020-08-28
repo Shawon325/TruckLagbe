@@ -97,33 +97,45 @@ $(document).ready(function () {
             buttons: true,
             dangerMode: true,
         })
-        .then((willDelete) => {
-            if (willDelete) {
-                $.ajax({
-                    url: "/admin/posts/" + data,
-                    type: "delete",
-                    dataType: "json",
-                    success: function (response) {
-                        datalist();
-                        toastr.success("Posts deleted successfully", "Success!");
-                    }
-                })
-            } else {
-                swal("Your imaginary District data is safe!");
-            }
-        });
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        url: "/admin/posts/" + data,
+                        type: "delete",
+                        dataType: "json",
+                        success: function (response) {
+                            datalist();
+                            toastr.success("Posts deleted successfully", "Success!");
+                        }
+                    })
+                } else {
+                    swal("Your imaginary District data is safe!");
+                }
+            });
     })
     $(document).on("click", ".bidAdd", function () {
         let data = $(this).attr("data");
 
         $.ajax({
-            url: "/admin/posts/"+data+"/bidAdd",
+            url: "/admin/posts/" + data + "/bidAdd",
             type: "get",
             dataType: "json",
             success: function (response) {
                 console.log(response);
                 $("#post_id").val(response.post_id);
-                
+
+            }
+        })
+    })
+    $(document).on("click", "#bid_status", function () {
+        let data = $(this).attr("data");
+
+        $.ajax({
+            url: "/admin/post_bid/show/" + data,
+            type: "get",
+            dataType: "json",
+            success: function (response) {
+                window.location.reload();
             }
         })
     })

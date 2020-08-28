@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\PostBid;
 use App\Posts;
 use App\Division;
 use App\District;
@@ -9,6 +10,7 @@ use App\Upzilla;
 use App\Truck;
 use App\PostPickUpModel;
 use App\PostPickDownModel;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
@@ -52,7 +54,8 @@ class PostsController extends Controller
             if ($request->search) {
                 $posts->where('post_id', 'LIKE', '%' . $request->search . '%');
             }
-        })->with("pick_up_address.division")
+        })->where("created_by", Auth::user()->id)
+            ->with("pick_up_address.division")
             ->with("pick_up_address.district")
             ->with("pick_up_address.upzilla")
             ->with("pick_down_address.division")
@@ -129,9 +132,10 @@ class PostsController extends Controller
         //
     }
 
-    public function bidAdd($post_id)
+    public function bidShow($post_id)
     {
-        $data = Posts::findOrFail($post_id);
+        $post_bid = PostBid::where("post_id", $post_id)->get();
+        return view('Backend.Post.Posts.post_bid_list', ['post_bid' => $post_bid]);
     }
 
     /**
