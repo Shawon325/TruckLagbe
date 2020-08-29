@@ -12,8 +12,10 @@
             <td>{{$key+1}}</td>
             <td>{{$value->name}}</td>
             <td>
-                <button class="btn btn-info edit" data="{{$value->id}}" data-toggle="modal" data-target="#editModal"><i
-                        class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                <a href="{{url('/admin/role/'. $value->id . '/edit')}}">
+                    <button class="btn btn-info edit" data="{{$value->id}}"><i
+                            class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                </a>
                 <button class="btn btn-danger delete" data="{{$value->id}}"><i
                         class="fa fa-trash-o" aria-hidden="true"></i></button>
             </td>

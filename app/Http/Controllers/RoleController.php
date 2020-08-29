@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
@@ -64,7 +65,12 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role = Role::where("id", $id)->first();
+        $permission = Permission::all();
+        return view('Backend.RBAC.Role.role_has_permission', [
+            'role' => $role,
+            'permission' => $permission,
+        ]);
     }
 
     /**
