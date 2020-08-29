@@ -58,6 +58,9 @@ Route::prefix('admin')->group(function () {
         //Role
         Route::resource("/role", "RoleController");
         Route::post("/role/store", "RoleController@store");
+        //Permission
+        Route::resource("/permission", "PermissionController");
+        Route::post("/permission/store", "PermissionController@store");
     });
     //Related Controller
     Route::get('/getDivision', 'RelatedController@getDivision');

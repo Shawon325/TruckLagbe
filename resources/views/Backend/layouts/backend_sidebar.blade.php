@@ -9,8 +9,8 @@
                 <ul>
                     <li class="{{ (request()->is('admin/role')) ? 'active' : '' }}"><a
                             href="{{url('/admin/role')}}">Role</a></li>
-                    <li class="{{ (request()->is('admin/district')) ? 'active' : '' }}"><a
-                            href="{{url('/admin/district')}}">Permission</a></li>
+                    <li class="{{ (request()->is('admin/permission')) ? 'active' : '' }}"><a
+                            href="{{url('/admin/permission')}}">Permission</a></li>
                 </ul>
             </li>
             <li>
