@@ -1,24 +1,26 @@
 @extends('Backend.layouts.backend_head')
-@section('title', '|| Role')
-@section('head', 'Role')
+@section('title', '|| Permission')
+@section('head', 'Permission')
 @section('head_name', 'Dashboard')
-@section('sub_name', 'Role')
+@section('sub_name', 'Permission')
 @section('content')
-    <button style="float: right" class="btn btn-info" data-toggle="modal" data-target="#add_ton">Add New Role</button>
-    <form id="role_form">
+    <button style="float: right" class="btn btn-info" data-toggle="modal" data-target="#add_ton">Add New Permission
+    </button>
+    <form id="permission_form">
         <div id="add_ton" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h5 class="modal-title">Add New Role</h5>
+                        <h5 class="modal-title">Add New Permission</h5>
                     </div>
                     <div class="modal-body">
                         <div class="panel-body">
                             <div class="form-group">
-                                <label class="col-lg-3 control-label">Role Name:</label>
+                                <label class="col-lg-3 control-label">Permission Name:</label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" name="name" placeholder="Role Name...">
+                                    <input type="text" class="form-control" name="name"
+                                           placeholder="Permission Name...">
                                 </div>
                             </div>
                             <br><br>
@@ -38,7 +40,7 @@
         <div class="tab-content">
             <div class="tab-pane active fade in" id="inside">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h6 class="panel-title"><i class="icon-table"></i> View All Role</h6>
+                    <div class="panel-heading"><h6 class="panel-title"><i class="icon-table"></i> View All Permission</h6>
                     </div>
                     <div class="datatable">
                         <div id="DataTables_Table_0_filter" class="dataTables_filter">
@@ -66,5 +68,5 @@
     </div>
 @endsection
 @section('script')
-    <script type="text/javascript" src="{{asset('backend_assets/js/role.js')}}"></script>
+    <script type="text/javascript" src="{{asset('backend_assets/js/permission.js')}}"></script>
 @endsection

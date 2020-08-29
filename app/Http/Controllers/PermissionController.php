@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
-class RoleController extends Controller
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('Backend.RBAC.Role.role');
+        return view('Backend.RBAC.Permission.permission');
     }
 
     /**
@@ -24,12 +24,12 @@ class RoleController extends Controller
      */
     public function create(Request $request)
     {
-        $role = Role::where(function ($role) use ($request) {
+        $permission = Permission::where(function ($role) use ($request) {
             if ($request->search) {
                 $role->where('name', 'LIKE', '%' . $request->search . '%');
             }
         })->paginate(10);
-        return view('Backend.RBAC.Role.list', ['role' => $role]);
+        return view('Backend.RBAC.Permission.list', ['permission' => $permission]);
     }
 
     /**
@@ -41,8 +41,8 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
-        $role = Role::create($request->all());
-        return response()->json($role, 201);
+        $permission = Permission::create($request->all());
+        return response()->json($permission, 201);
     }
 
     /**
@@ -87,7 +87,7 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        $role = Role::findOrFail($id)->delete();
-        return response()->json($role, 202);
+        $permission = Permission::findOrFail($id)->delete();
+        return response()->json($permission, 202);
     }
 }

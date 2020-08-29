@@ -2,18 +2,16 @@
     <thead>
     <tr>
         <th>#</th>
-        <th>Role Name</th>
+        <th>Permission Name</th>
         <th>Action</th>
     </tr>
     </thead>
     <tbody>
-    @foreach($role as $key => $value)
+    @foreach($permission as $key => $value)
         <tr>
             <td>{{$key+1}}</td>
             <td>{{$value->name}}</td>
             <td>
-                <button class="btn btn-info edit" data="{{$value->id}}" data-toggle="modal" data-target="#editModal"><i
-                        class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                 <button class="btn btn-danger delete" data="{{$value->id}}"><i
                         class="fa fa-trash-o" aria-hidden="true"></i></button>
             </td>
@@ -26,6 +24,6 @@
         entries
     </div>
     <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_0_paginate">
-        {{$role->links()}}
+        {{$permission->links()}}
     </div>
 </div>

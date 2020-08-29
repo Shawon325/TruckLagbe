@@ -1,18 +1,18 @@
 $(document).ready(function () {
     datalist();
-    $(document).on("submit", "#role_form", function (e) {
+    $(document).on("submit", "#permission_form", function (e) {
         e.preventDefault();
         let data = $(this).serializeArray();
         $.ajax({
-            url: "/admin/role/store",
+            url: "/admin/permission/store",
             data: data,
             type: "post",
             dataType: "json",
             success: function (response) {
                 datalist();
-                toastr.success("New Role added successfully", "Success!");
+                toastr.success("New Permission added successfully", "Success!");
                 $(".close").click();
-                $("#role_form").trigger("reset");
+                $("#permission_form").trigger("reset");
             },
             error: function (error) {
                 console.log(error);
@@ -33,12 +33,12 @@ $(document).ready(function () {
             .then((willDelete) => {
                 if (willDelete) {
                     $.ajax({
-                        url: "/admin/role/" + data,
+                        url: "/admin/permission/" + data,
                         type: "delete",
                         dataType: "json",
                         success: function (response) {
                             datalist();
-                            toastr.success("Role data deleted successfully", "Success!");
+                            toastr.success("Permission data deleted successfully", "Success!");
                         }
                     })
                 } else {
@@ -57,7 +57,7 @@ $(document).ready(function () {
         datalist();
     });
 
-    function datalist(page_link = "/admin/role/create") {
+    function datalist(page_link = "/admin/permission/create") {
         let search = $(".search").val();
 
         $.ajax({
