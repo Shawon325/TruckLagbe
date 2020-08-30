@@ -1,6 +1,8 @@
 {{--    <script type="text/javascript" src="{{asset('js/all.js')}}"></script>--}}
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+{{--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>--}}
+    <script type="text/javascript" src="{{asset('backend_assets/js/jquery.min.js')}}"></script>
+{{--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>--}}
+    <script type="text/javascript" src="{{asset('backend_assets/js/jquery-ui.min.js')}}"></script>
 
     <script type="text/javascript" src="{{asset('backend_assets/js/plugins/interface/colorpicker.js')}}"></script>
 
@@ -44,8 +46,8 @@
         });
     </script>
 
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="{{asset('backend_assets/js/sweetalert.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('backend_assets/js/toastr.min.js')}}"></script>
     <script type="text/javascript">
         toastr.options = {
             "closeButton": true,
