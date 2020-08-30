@@ -171,10 +171,10 @@
                 <li><a href="#"><i class="icon-user"></i> Profile</a></li>
                 <li><a href="#"><i class="icon-bubble4"></i> Messages</a></li>
                 <li><a href="#"><i class="icon-cog"></i> Settings</a></li>
+                <li><a onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="#"><i class="icon-exit"></i> Logout</a></li>
                 <li>
-                    <form action="{{ route('logout') }}" method="POST">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
-                        <button><i class="icon-exit"></i> Logout</button>
                     </form>
                 </li>
             </ul>
