@@ -7,10 +7,14 @@
             <li>
                 <a href="#"><span>RBAC</span> <i class="icon-user-plus"></i></a>
                 <ul>
+                    @can('View Role')
                     <li class="{{ (request()->is('admin/role')) ? 'active' : '' }}"><a
                             href="{{url('/admin/role')}}">Role</a></li>
+                    @endcan
                     <li class="{{ (request()->is('admin/permission')) ? 'active' : '' }}"><a
                             href="{{url('/admin/permission')}}">Permission</a></li>
+                    <li class="{{ (request()->is('admin/role_has_permission')) ? 'active' : '' }}"><a
+                            href="{{url('/admin/role_has_permission')}}">Role Permission</a></li>
                 </ul>
             </li>
             <li>
