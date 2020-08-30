@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -15,7 +17,12 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('Backend.RBAC.Role.role');
+        $user = User::find(Auth::user()->id);
+        if ($user->can('View Role')) {
+            return view('Backend.RBAC.Role.role');
+        } else {
+            abort(401);
+        }
     }
 
     /**
@@ -65,12 +72,7 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        $role = Role::where("id", $id)->first();
-        $permission = Permission::all();
-        return view('Backend.RBAC.Role.role_has_permission', [
-            'role' => $role,
-            'permission' => $permission,
-        ]);
+        //
     }
 
     /**
