@@ -105,6 +105,9 @@ class RoleHasPermissionController extends Controller
             ];
         }
         RoleHasPermission::insert($data);
+//        $user=User::find(Auth::user()->id);
+//        $permission_name=Role::find($id);
+//        $user->syncRoles([$permission_name->name]);
         return back();
     }
 
