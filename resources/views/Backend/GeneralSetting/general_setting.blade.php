@@ -4,5 +4,5 @@
 @section('head_name', 'General Setting')
 @section('sub_name', 'General Setting')
 @section('content')
-
+    
 @endsection

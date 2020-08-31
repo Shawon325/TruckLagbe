@@ -14,6 +14,11 @@ class TonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware(['role_or_permission:Truck User|Ton View']);
+    }
+
     public function index()
     {
         return view('Backend.Truck.Ton.ton');
@@ -37,7 +42,7 @@ class TonController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -64,7 +69,7 @@ class TonController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\ton  $ton
+     * @param \App\ton $ton
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -77,13 +82,13 @@ class TonController extends Controller
             $ton_status->update(["status" => 1]);
             $status = 200;
         }
-        return response()->json($ton_status, $status);   
+        return response()->json($ton_status, $status);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ton  $ton
+     * @param \App\ton $ton
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -95,8 +100,8 @@ class TonController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ton  $ton
+     * @param \Illuminate\Http\Request $request
+     * @param \App\ton $ton
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -117,13 +122,13 @@ class TonController extends Controller
                 "errors" => $validation->errors(),
             ];
         }
-        return response()->json($response, $status);     
+        return response()->json($response, $status);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ton  $ton
+     * @param \App\ton $ton
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

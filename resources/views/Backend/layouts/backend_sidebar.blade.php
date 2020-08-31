@@ -58,7 +58,7 @@
                             <li class="{{ (request()->is('admin/truck/create')) ? 'active' : '' }}"><a
                                     href="{{url('/admin/truck/create')}}">Add Truck</a></li>
                         @endcan
-                        @can('	Truck View')
+                        @can('Truck View')
                             <li class="{{ (request()->is('admin/truck')) ? 'active' : '' }}"><a
                                     href="{{url('/admin/truck')}}">Truck
                                     List</a></li>

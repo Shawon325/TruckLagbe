@@ -200,7 +200,7 @@
                     <li>
                         <div class="clearfix">
                             <div class="chat-member">
-                                <a href="#"><img src="images/demo/users/face1.png" alt=""></a>
+                                <a href="#"><img src="backend_assets/images/demo/users/face1.png" alt=""></a>
                                 <h6>Eugene Kopyov <span class="status status-success"></span> <small>&nbsp; /&nbsp; Wed developer</small></h6>
                             </div>
                             <div class="chat-actions">
@@ -214,7 +214,7 @@
                     <li>
                         <div class="clearfix">
                             <div class="chat-member">
-                                <a href="#"><img src="images/demo/users/face2.png" alt=""></a>
+                                <a href="#"><img src="backend_assets/images/demo/users/face2.png" alt=""></a>
                                 <h6>Duncan McMart <span class="status status-default"></span> <small>&nbsp; /&nbsp; Wed designer</small></h6>
                             </div>
                             <div class="chat-actions">
@@ -228,7 +228,7 @@
                     <li>
                         <div class="clearfix">
                             <div class="chat-member">
-                                <a href="#"><img src="images/demo/users/face3.png" alt=""></a>
+                                <a href="#"><img src="backend_assets/images/demo/users/face3.png" alt=""></a>
                                 <h6>Lucy Smith <span class="status status-warning"></span> <small>&nbsp; /&nbsp; UI expert</small></h6>
                             </div>
                             <div class="chat-actions">
