@@ -21,7 +21,8 @@ class RoleController extends Controller
         if ($user->can('View Role')) {
             return view('Backend.RBAC.Role.role');
         } else {
-            abort(401);
+            abort(401s?
+        );
         }
     }
 
