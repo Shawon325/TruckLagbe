@@ -19,6 +19,8 @@
                         <li class="{{ (request()->is('admin/role_has_permission')) ? 'active' : '' }}"><a
                                 href="{{url('/admin/role_has_permission')}}">Role Permission</a></li>
                     @endcan
+                    <li class="{{ (request()->is('admin/user_access')) ? 'active' : '' }}"><a
+                            href="{{url('/admin/user_access')}}">User Access</a></li>
                 </ul>
             </li>
             <li>

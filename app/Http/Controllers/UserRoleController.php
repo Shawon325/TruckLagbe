@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-class RoleController extends Controller
+class UserRoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +15,12 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $user = User::find(Auth::user()->id);
-        if ($user->can('View Role')) {
-            return view('Backend.RBAC.Role.role');
-        } else {
-            abort(401);
-        }
+        $users = User::with('roles')->get();
+        $roles = Role::all();
+        return view('Backend.RBAC.UserAccess.user_access', [
+            'roles' => $roles,
+            'users' => $users,
+        ]);
     }
 
     /**
@@ -30,14 +28,14 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $role = Role::where(function ($role) use ($request) {
-            if ($request->search) {
-                $role->where('name', 'LIKE', '%' . $request->search . '%');
-            }
-        })->paginate(10);
-        return view('Backend.RBAC.Role.list', ['role' => $role]);
+        $users = User::with('roles')->get();
+        $roles = Role::all();
+        return view('Backend.RBAC.UserAccess.list', [
+            'users' => $users,
+            'roles' => $roles
+        ]);
     }
 
     /**
@@ -48,9 +46,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        $role = Role::create($request->all());
-        return response()->json($role, 201);
+        //
     }
 
     /**
@@ -72,7 +68,8 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::whereId($id)->with('roles')->first();
+        return response()->json($user);
     }
 
     /**
@@ -84,7 +81,16 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // dd($request->all());
+        $user = User::find($id);
+        if ($request->old_role) {
+            $user->removeRole($request->old_role);
+        }
+        $user->assignRole($request->role_id);
+        $response = [
+            'title' => 'User_Role',
+        ];
+        return response()->json($response, 201);
     }
 
     /**
@@ -95,7 +101,6 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        $role = Role::findOrFail($id)->delete();
-        return response()->json($role, 202);
+        //
     }
 }
