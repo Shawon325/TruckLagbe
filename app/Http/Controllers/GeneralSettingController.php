@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\GeneralSetting;
+use App\Http\Requests\GeneralSettingRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class GeneralSettingController extends Controller
 {
@@ -14,7 +16,8 @@ class GeneralSettingController extends Controller
      */
     public function index()
     {
-        return view('Backend.GeneralSetting.general_setting');
+        $general_setting = GeneralSetting::first();
+        return view('Backend.GeneralSetting.general_setting', ['general_setting' => $general_setting]);
     }
 
     /**
@@ -67,9 +70,25 @@ class GeneralSettingController extends Controller
      * @param \App\GeneralSetting $generalSetting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, GeneralSetting $generalSetting)
+    public function update(GeneralSettingRequest $request, $id)
     {
-        //
+        // dd($request->all());
+        $general_setting = GeneralSetting::findOrFail($id);
+        $requested_data = $request->all();
+        if ($request->hasFile('image')) {
+//            if (Auth::user()->user_img)
+//            {
+//                unlink(public_path('images/user/').Auth::user()->user_img);
+//            }
+            $ext = $request->file('image')->getClientOriginalExtension();
+            $path = 'backend_assets/images/general_setting/';
+            $img_name = time() . '.' . $ext;
+            $full_name = $path . $img_name;
+            $request->file('image')->move($path, $img_name);
+            $requested_data = Arr::set($requested_data, "logo", $full_name);
+        }
+        $general_setting->fill($requested_data)->save();
+        return redirect()->back();
     }
 
     /**
