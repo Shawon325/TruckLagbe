@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\GeneralSetting;
 use App\Http\Requests\GeneralSettingRequest;
+use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -76,10 +77,9 @@ class GeneralSettingController extends Controller
         $general_setting = GeneralSetting::findOrFail($id);
         $requested_data = $request->all();
         if ($request->hasFile('image')) {
-//            if (Auth::user()->user_img)
-//            {
-//                unlink(public_path('images/user/').Auth::user()->user_img);
-//            }
+            if (File::exists($general_setting->logo)) {
+                File::delete($general_setting->logo);
+            }
             $ext = $request->file('image')->getClientOriginalExtension();
             $path = 'backend_assets/images/general_setting/';
             $img_name = time() . '.' . $ext;
