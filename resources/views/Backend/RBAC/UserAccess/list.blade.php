@@ -22,9 +22,11 @@
                 @endif
             </td>
             <td>
-                <button class="btn btn-primary edit" data-toggle="modal" data-target="#editUserAccess"
-                        data="{{$user->id}}"
-                ><i class="fa fa-edit"></i></button>
+                @can('User Access Edit')
+                    <button class="btn btn-primary edit" data-toggle="modal" data-target="#editUserAccess"
+                            data="{{$user->id}}"
+                    ><i class="fa fa-edit"></i></button>
+                @endcan
             </td>
         </tr>
     @endforeach

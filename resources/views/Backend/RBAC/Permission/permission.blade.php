@@ -4,8 +4,10 @@
 @section('head_name', 'Dashboard')
 @section('sub_name', 'Permission')
 @section('content')
-    <button style="float: right" class="btn btn-info" data-toggle="modal" data-target="#add_ton">Add New Permission
-    </button>
+    @can('Permission Add')
+        <button style="float: right" class="btn btn-info" data-toggle="modal" data-target="#add_ton">Add New Permission
+        </button>
+    @endcan
     <form id="permission_form">
         <div id="add_ton" class="modal fade">
             <div class="modal-dialog">
@@ -40,7 +42,8 @@
         <div class="tab-content">
             <div class="tab-pane active fade in" id="inside">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h6 class="panel-title"><i class="icon-table"></i> View All Permission</h6>
+                    <div class="panel-heading"><h6 class="panel-title"><i class="icon-table"></i> View All Permission
+                        </h6>
                     </div>
                     <div class="datatable">
                         <div id="DataTables_Table_0_filter" class="dataTables_filter">

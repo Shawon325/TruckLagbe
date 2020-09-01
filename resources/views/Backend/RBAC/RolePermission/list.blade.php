@@ -24,8 +24,10 @@
                 @endforeach
             </td>
             <td>
-                <button class="btn btn-info edit" data="{{$value->id}}" data-toggle="modal"
-                        data-target="#editModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                @can('Role Permission Edit')
+                    <button class="btn btn-info edit" data="{{$value->id}}" data-toggle="modal"
+                            data-target="#editModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                @endcan
             </td>
         </tr>
     @endforeach

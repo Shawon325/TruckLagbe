@@ -37,8 +37,10 @@
                 @endif
             </td>
             <td>
-                <button class="btn btn-danger delete" data="{{$value->post_id}}"><i class="fa fa-trash"
-                                                                                    aria-hidden="true"></i></button>
+                @can('Post Delete')
+                    <button class="btn btn-danger delete" data="{{$value->post_id}}"><i class="fa fa-trash"
+                                                                                        aria-hidden="true"></i></button>
+                @endcan
                 @if ($value->status === 1)
                     <button class="btn btn-success" id="status" data="{{$value->post_id}}"><i class="fa fa-refresh"
                                                                                               aria-hidden="true"></i>
@@ -48,12 +50,15 @@
                                                                                               aria-hidden="true"></i>
                     </button>
                 @endif
-                <button class="btn btn-info edit" data="{{$value->post_id}}" data-toggle="modal"
-                        data-target="#editModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-
-                <a href="{{url('admin/posts/bidShow/'. $value->post_id)}}">
-                    <button class="btn btn-info edit"><i class="fa fa-eye" aria-hidden="true"></i></button>
-                </a>
+                @can('Post Edit')
+                    <button class="btn btn-info edit" data="{{$value->post_id}}" data-toggle="modal"
+                            data-target="#editModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                @endcan
+                @can('Show Bid')
+                    <a href="{{url('admin/posts/bidShow/'. $value->post_id)}}">
+                        <button class="btn btn-info edit"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                    </a>
+                @endcan
             </td>
         </tr>
     @endforeach
