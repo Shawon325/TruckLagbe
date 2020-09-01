@@ -4,7 +4,9 @@
 @section('head_name', 'Dashboard')
 @section('sub_name', 'Ton')
 @section('content')
-    <button style="float: right" class="btn btn-info" data-toggle="modal" data-target="#add_ton">Add new</button>
+    @can('Ton Add')
+        <button style="float: right" class="btn btn-info" data-toggle="modal" data-target="#add_ton">Add new</button>
+    @endcan
     <form id="ton_form">
         <div id="add_ton" class="modal fade">
             <div class="modal-dialog">
@@ -25,7 +27,8 @@
                             <div class="form-group">
                                 <label class="col-lg-3 control-label">Description:</label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" name="description" placeholder="Description">
+                                    <input type="text" class="form-control" name="description"
+                                           placeholder="Description">
                                 </div>
                             </div>
                             <br><br>
@@ -60,14 +63,16 @@
                             <div class="form-group">
                                 <label class="col-lg-3 control-label">Ton Number:</label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" id="ton_number" name="ton_number" placeholder="Ton Number">
+                                    <input type="text" class="form-control" id="ton_number" name="ton_number"
+                                           placeholder="Ton Number">
                                 </div>
                             </div>
                             <br><br>
                             <div class="form-group">
                                 <label class="col-lg-3 control-label">Description:</label>
                                 <div class="col-lg-9">
-                                    <input type="text" class="form-control" id="description" name="description" placeholder="Description">
+                                    <input type="text" class="form-control" id="description" name="description"
+                                           placeholder="Description">
                                 </div>
                             </div>
                             <br><br>
@@ -81,21 +86,24 @@
             </div>
         </div>
     </form>
-    
+
     <div class="tabbable page-tabs">
         <div class="tab-content">
             <div class="tab-pane active fade in" id="inside">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h6 class="panel-title"><i class="icon-table"></i> View All Image</h6></div>
+                    <div class="panel-heading"><h6 class="panel-title"><i class="icon-table"></i> View All Image</h6>
+                    </div>
                     <div class="datatable">
                         <div id="DataTables_Table_0_filter" class="dataTables_filter">
                             <label><span>Filter:</span>
-                                <input type="search" class="search" aria-controls="DataTables_Table_0" placeholder="Type to filter...">
+                                <input type="search" class="search" aria-controls="DataTables_Table_0"
+                                       placeholder="Type to filter...">
                             </label>
                         </div>
                         <div class="dataTables_length" id="DataTables_Table_0_length">
                             <label><span>Show:</span>
-                                <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="select2-offscreen" tabindex="-1" title="">
+                                <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0"
+                                        class="select2-offscreen" tabindex="-1" title="">
                                     <option value="10">10</option>
                                     <option value="25">25</option>
                                     <option value="50">50</option>

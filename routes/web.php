@@ -36,9 +36,6 @@ Route::prefix('admin')->group(function () {
         Route::group(['middleware' => ['role:Truck User|Super Admin|Admin']], function () {
             //Ton
             Route::resource('/ton', 'TonController');
-            Route::post('/ton/store', 'TonController@store');
-            Route::post('/ton/update', 'TonController@update');
-            Route::get('/ton/show/{id}', 'TonController@show');
             //Truck
             Route::resource('/truck', 'TruckController');
             Route::get('/truck/division/{division_id}', 'TruckController@division');
@@ -46,6 +43,12 @@ Route::prefix('admin')->group(function () {
             Route::get('/truck/show/{id}', 'TruckController@show');
             Route::get('/truck_list', 'TruckController@truck_list');
             Route::get('/image/{id}', 'TruckController@image');
+        });
+        Route::group(['middleware' => ['role:Super Admin|Admin']], function () {
+            // Ton
+            Route::post('/ton/store', 'TonController@store');
+            Route::post('/ton/update', 'TonController@update');
+            Route::get('/ton/show/{id}', 'TonController@show');
         });
         Route::group(['middleware' => ['role:User|Super Admin|Admin']], function () {
             //Posts

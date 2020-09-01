@@ -4,7 +4,10 @@
 @section('head_name', 'Dashboard')
 @section('sub_name', 'Role Has Permission')
 @section('content')
-    <button style="float: right" class="btn btn-info" data-toggle="modal" data-target="#add_ton">Add New Role</button>
+    @can('Role Permission Add')
+        <button style="float: right" class="btn btn-info" data-toggle="modal" data-target="#add_ton">Add New Role
+        </button>
+    @endcan
     <form id="role_permission">
         <div id="add_ton" class="modal fade">
             <div class="modal-dialog">
@@ -89,7 +92,8 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div style="border: 1px solid;background: rgb(46, 93, 128);color: white;">
-                                        <p style="margin-left: 2%;margin-top: 1%;font-size: 14px;font-weight: 800;text-align: center;" id="role_name"></p>
+                                        <p style="margin-left: 2%;margin-top: 1%;font-size: 14px;font-weight: 800;text-align: center;"
+                                           id="role_name"></p>
                                     </div>
                                 </div>
                             </div>

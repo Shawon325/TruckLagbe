@@ -4,7 +4,10 @@
 @section('head_name', 'Dashboard')
 @section('sub_name', 'Role')
 @section('content')
-    <button style="float: right" class="btn btn-info" data-toggle="modal" data-target="#add_ton">Add New Role</button>
+    @can('Role Add')
+        <button style="float: right" class="btn btn-info" data-toggle="modal" data-target="#add_ton">Add New Role
+        </button>
+    @endcan
     <form id="role_form">
         <div id="add_ton" class="modal fade">
             <div class="modal-dialog">
