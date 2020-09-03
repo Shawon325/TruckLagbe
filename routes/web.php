@@ -43,6 +43,11 @@ Route::prefix('admin')->group(function () {
             Route::get('/truck/show/{id}', 'TruckController@show');
             Route::get('/truck_list', 'TruckController@truck_list');
             Route::get('/image/{id}', 'TruckController@image');
+            //Profile
+            Route::resource('/profile', 'ProfileController');
+            Route::resource('/password', 'PasswordController');
+            Route::post('password/store', 'PasswordController@store');
+            Route::get('pass', 'PasswordController@password')->name('password');
         });
         Route::group(['middleware' => ['role:Super Admin|Admin']], function () {
             // Ton
