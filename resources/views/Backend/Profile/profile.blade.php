@@ -8,7 +8,7 @@
     <form id="user_form" action="{{route('profile.store')}}" class="form-horizontal"  method="post" enctype="multipart/form-data">@csrf
     <div class="modal-body">
         <div class="panel panel-default">
-            <div class="panel-heading"><h6 class="panel-title"><i class="icon-bug"></i> Profile Change</h6></div>
+            <div class="panel-heading"><h6 class="panel-title"><i class="icon-user"></i> Profile Change</h6></div>
             <div class="panel-body"> 
 
         <div class="panel-body">
@@ -75,9 +75,6 @@
                 };
                 reader.readAsDataURL(input.files[0]);
             }
-        }
-        function myFunction() {
-            window.print();
         }
     </script>
 @endsection

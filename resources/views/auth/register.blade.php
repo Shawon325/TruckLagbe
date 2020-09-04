@@ -14,17 +14,6 @@
 <body class="full-width page-condensed">
 
 
-<div class="navbar navbar-inverse" role="navigation">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-right">
-            <span class="sr-only">Toggle navbar</span>
-            <i class="icon-grid3"></i>
-        </button>
-        {{--        <a class="navbar-brand" href="#"><img src="images/logo.png" alt="Londinium"></a>--}}
-    </div>
-</div>
-
-
 <div class="login-wrapper">
     <div class="popup-header" style="margin-top: -60px;">
         <a href="#" class="pull-left"><i class="icon-user-plus"></i></a>
