@@ -9,7 +9,7 @@
     <div class="modal-dialog">
     	<div class="modal-body">
         <div class="panel panel-default">
-            <div class="panel-heading"><h6 class="panel-title"><i class="icon-bug"></i> Password Change</h6></div>
+            <div class="panel-heading"><h6 class="panel-title"><i class="icon-lock form-control-feedback"></i> Password Change</h6></div>
             <div class="modal-body">
             	
                 <div class="panel-body">
@@ -19,20 +19,20 @@
                         <input id="current_password" type="password" class="form-control" name="password" required autocomplete="new-password" placeholder="Current Password">                
                     </div>
                     <span id="icon" class="col-lg-1"></span>
-                    </div><br>
+                    </div><br><br>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">New Password:</label>
                         <div class="col-lg-8">
                             <input id="new_password" type="password" class="form-control" name="new_password" required autocomplete="new-password" placeholder="New Password" disabled>
                         </div>
-                    </div><br>
+                    </div><br><br>
                     <div class="form-group">
                         <label class="control-label col-lg-3">Confirm Password:</label>
                         <div class="col-lg-8">
                             <input id="retype_password" type="password" class="form-control" name="retype_password" required autocomplete="new-password" placeholder="Confirm Password" disabled>
                         </div>
                         <span id="re_icon" class="col-lg-1"></span>
-                    </div><br>
+                    </div><br><br>
                 </div>
             </div>
             <div class="modal-footer">
