@@ -12,5 +12,6 @@
     <link rel="stylesheet" href="{{asset('backend_assets/css/fonts.css')}}">
     {{--    droptify--}}
     <link rel="stylesheet" href="{{asset('backend_assets/dist/plugins/dropify/dropify.min.css')}}">
+    
 
 

@@ -164,13 +164,13 @@
 
         <li class="user dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown">
-                <img src="{{asset('backend_assets/images/demo/users/face1.png')}}" alt="">
+                <img src="{{Auth::user()->image}}" style="border-radius: 50%;">
+                <span>{{Auth::user()->name}}</span>
                 <i class="caret"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-right icons-right">
-                <li><a href="#"><i class="icon-user"></i> Profile</a></li>
-                <li><a href="#"><i class="icon-bubble4"></i> Messages</a></li>
-                <li><a href="#"><i class="icon-cog"></i> Settings</a></li>
+                <li class="{{ (request()->is('admin/profile')) ? 'active' : '' }}"><a href="{{url('/admin/profile')}}"><i class="icon-user"></i> Profile Change</a></li>
+                    <li class="{{ (request()->is('admin/password')) ? 'active' : '' }}"><a href="{{url('/admin/password')}}"><i class="icon-lock form-control-feedback"></i> Password Change</a></li>
                 <li><a onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="#"><i class="icon-exit"></i> Logout</a></li>
                 <li>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
