@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\User;
 use File;
 use DB;
+
 class ProfileController extends Controller
 {
     /**
@@ -43,17 +44,17 @@ class ProfileController extends Controller
             'name'   => 'required',
             'gender' => 'required',
             'contact'=> 'required',
-            'image'=> 'mimes:png,jpg,jpeg',
+            'image'  => 'mimes:png,jpg,jpeg',
         ]);
-        if($request->hasFile('image')) {
-            if($request->old_img!=''){
+        if ($request->hasFile('image')) {
+            if ($request->old_img!='') {
                 unlink($request->old_img);
             }
             $image_type = $request->file('image')->getClientOriginalExtension();
             $path = "backend_assets/images/BackendImg/User/";
             $name = 'user_'.time().".".$image_type;
-            $image = $request->file('image')->move($path,$name);
-            
+            $image = $request->file('image')->move($path, $name);
+
             $data = [
                 'name'   => $request->name,
                 'gender' => $request->gender,
@@ -67,7 +68,7 @@ class ProfileController extends Controller
                 'contact'=> $request->contact
             ];
         }
-        
+
         User::where('id', Auth::user()->id)->update($data);
         return redirect('/admin');
     }

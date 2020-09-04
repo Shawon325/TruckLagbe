@@ -21,9 +21,9 @@ class DistrictController extends Controller
         $district = District::all();
         $division = Division::active()->get();
         return view('Backend.Setting.District.district', [
-            'district' => $district,
-            'division' => $division
-        ]);
+                    'district' => $district,
+                    'division' => $division
+                ]);
     }
 
     /**
@@ -61,8 +61,7 @@ class DistrictController extends Controller
                 "status" => $status,
                 "errors" => $validation->errors(),
             ];
-        }
-        else {
+        } else {
             $district_model->fill($request->all())->save();
             $status = 201;
             $response = [
@@ -84,10 +83,9 @@ class DistrictController extends Controller
         $district_status = District::findOrFail($id);
         if ($district_status->status == 1) :
             $district_status->update(["status" => 0]);
-            $status = 201;
-        else :
+        $status = 201; else :
             $district_status->update(["status" => 1]);
-            $status = 200;
+        $status = 200;
         endif;
         return response()->json($district_status, $status);
     }
