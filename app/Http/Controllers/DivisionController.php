@@ -1,5 +1,5 @@
 <?php
- 
+
 namespace App\Http\Controllers;
 
 use App\Division;
@@ -102,7 +102,7 @@ class DivisionController extends Controller
      */
     public function update(Request $request)
     {
-         // dd($request->all());
+        // dd($request->all());
         $division_model = Division::findOrFail($request->division_id);
         $validation = Validator::make($request->all(), $division_model->validation());
         if ($validation->fails()) {
