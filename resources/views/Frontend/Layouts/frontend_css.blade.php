@@ -19,6 +19,8 @@
 
 <!-- Template Main CSS File -->
 <link href="{{asset('frontend_assets/assets/css/style.css')}}" rel="stylesheet">
+@yield('css');
+
 
 <!-- =======================================================
 * Template Name: Mamba - v2.4.0

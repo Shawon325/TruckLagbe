@@ -1,6 +1,15 @@
 <!-- ======= About Lists Section ======= -->
+<style>
+    /*.about-lists{*/
+    /*    background-color: rgb(143,188,143);*/
+    /*}*/
+    /*.s-1*/
+    /*{*/
+    /*    padding-top: 30px;*/
+    /*}*/
+</style>
 <section class="about-lists">
-    <div class="container">
+    <div class="container container-main">
 
         <div class="section-title">
             <h2>Posts</h2>

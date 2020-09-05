@@ -1,0 +1,32 @@
+.post-main{
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+.data{
+    background-color: #17141d;
+}
+.card {
+    display: inline-flex;
+    /*background-color: #17141d;*/
+    border-radius: 10px;
+    box-shadow: -1rem 0 3rem #000;
+    transition: 0.4s ease-out;
+    position: relative;
+    left: 0px;
+}
+
+
+
+/*.card:hover {*/
+/*    transform: translateY(-20px);*/
+/*    transition: 0.4s ease-out;*/
+/*}*/
+/*.card:hover ~ .card {*/
+/*    position: relative;*/
+/*    left: 50px;*/
+/*    transition: 0.4s ease-out;*/
+/*}*/
