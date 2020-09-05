@@ -1,7 +1,13 @@
 @extends('Frontend.Layouts.head')
+
 @section('main_content')
-    <div class="container">
-        <div class="row">
+@section('css')
+    <link href="{{asset('frontend_assets/assets/css/view_post.css')}}" rel="stylesheet">
+@endsection
+
+    <section class="post-main">
+    <div class="container ">
+        <div class="row ">
             <div class="col-md-2">
             </div>
             <div class="col-md-8">
@@ -17,72 +23,80 @@
                 <header></header>
                 <br>
                 <div class="card border-success">
-                    <div class="card-body ">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <div class="row">
-                                    <div class="col-md-4">Pick Up Address
+                    <div class="card-body info-body">
+                        <ul class="list-group info-body">
+                            <li class="list-group-item info-body">
+                                <div class="row info-body">
+                                    <div class="col-md-4 ">Pick Up Address
                                     </div>
                                     <div class="col-md-8">
-                                        <div class="col-md-8">
-                                            <img style="max-width: 2rem; max-height: 2rem; float: left;"
-                                                 src="{{asset('frontend_assets/assets/img/location-1.png')}}"
-                                                 class="rounded mx-auto d-block" alt="...">
-                                            {{$view_post->pick_up_address->division->division_name}}
-                                            ,{{$view_post->pick_up_address->district->district_name}}
-                                            ,{{$view_post->pick_up_address->upzilla->upzilla_name}}
-                                            ,{{$view_post->pick_up_address->home_address}}
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <img style="max-width: 2rem; max-height: 2rem; float: left;"
+                                                     src="{{asset('frontend_assets/assets/img/location-1.png')}}"
+                                                     class="rounded mx-auto d-block" alt="...">
+                                            </div>
+                                            <div class="col-md-11">
+
+                                                {{$view_post->pick_up_address->division->division_name}}
+                                                ,{{$view_post->pick_up_address->district->district_name}}
+                                                ,{{$view_post->pick_up_address->upzilla->upzilla_name}}
+                                                ,{{$view_post->pick_up_address->home_address}}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                            <li class="list-group-item">
-                                <div class="row">
+                            <li class="list-group-item info-body">
+                                <div class="row info-body">
                                     <div class="col-md-4">Pick Down Address</div>
                                     <div class="col-md-8">
-                                        <img style="max-width: 2rem; max-height: 2rem; float: left;"
-                                             src="{{asset('frontend_assets/assets/img/location-1.png')}}"
-                                             class="rounded mx-auto d-block" alt="...">
-                                        {{$view_post->pick_down_address->division->division_name}}
-                                        ,{{$view_post->pick_down_address->district->district_name}}
-                                        ,{{$view_post->pick_down_address->upzilla->upzilla_name}}
-                                        ,{{$view_post->pick_down_address->home_address}}
-
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <img style="max-width: 2rem; max-height: 2rem; float: left;"
+                                                     src="{{asset('frontend_assets/assets/img/location-1.png')}}"
+                                                     class="rounded mx-auto d-block" alt="...">
+                                            </div>
+                                            <div class="col-md-11">
+                                                {{$view_post->pick_down_address->division->division_name}}
+                                                ,{{$view_post->pick_down_address->district->district_name}}
+                                                ,{{$view_post->pick_down_address->upzilla->upzilla_name}}
+                                                ,{{$view_post->pick_down_address->home_address}}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
-                            <li class="list-group-item">
-                                <div class="row">
+                            <li class="list-group-item info-body">
+                                <div class="row info-body">
                                     <div class="col-md-4">Pick Up Date</div>
                                     <div class="col-md-8">{{$view_post->assign_date}}</div>
                                 </div>
                             </li>
-                            <li class="list-group-item">
-                                <div class="row">
+                            <li class="list-group-item info-body">
+                                <div class="row info-body">
                                     <div class="col-md-4">Pick Up time</div>
                                     <div class="col-md-8">{{$view_post->post_pick_up_time}}</div>
                                 </div>
                             </li>
-                            <li class="list-group-item">
-                                <div class="row">
+                            <li class="list-group-item info-body">
+                                <div class="row info-body">
                                     <div class="col-md-4">Accessory Weight</div>
                                     <div class="col-md-8">{{$view_post->accessory_weight}}</div>
                                 </div>
                             </li>
-                            <li class="list-group-item">
-                                <div class="row">
+                            <li class="list-group-item info-body">
+                                <div class="row info-body">
                                     <div class="col-md-4">Budget</div>
                                     <div class="col-md-8">{{$view_post->budget}}</div>
                                 </div>
                             </li>
-                            <li class="list-group-item">
-                                <div class="row">
+                            <li class="list-group-item info-body">
+                                <div class="row info-body">
                                     <div class="col-md-4">Description</div>
                                     <div class="col-md-8">{{$view_post->description}}</div>
                                 </div>
                             </li>
-
-
                         </ul>
                     </div>
                 </div>
@@ -92,6 +106,7 @@
         </div>
     </div>
     <br>
+    </section>
 
     <form id="bid_form">
         <div id="bidModal" class="modal fade">
