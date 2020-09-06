@@ -38,8 +38,6 @@ Route::prefix('admin')->group(function () {
             Route::resource('/ton', 'TonController');
             //Truck
             Route::resource('/truck', 'TruckController');
-            Route::get('/truck/division/{division_id}', 'TruckController@division');
-            Route::get('/truck/district/{district_id}', 'TruckController@district');
             Route::get('/truck/show/{id}', 'TruckController@show');
             Route::get('/truck_list', 'TruckController@truck_list');
             Route::get('/image/{id}', 'TruckController@image');
@@ -59,6 +57,8 @@ Route::prefix('admin')->group(function () {
             //Posts
             Route::resource('/posts', 'PostsController');
             Route::get('/list', 'PostsController@list');
+            Route::get('/truck/division/{division_id}', 'TruckController@division');
+            Route::get('/truck/district/{district_id}', 'TruckController@district');
             Route::get('/posts/show/{id}', 'PostsController@show');
             Route::get('/posts/bidShow/{post_id}', 'PostsController@bidShow');
         });
