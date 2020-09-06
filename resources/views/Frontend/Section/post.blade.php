@@ -8,7 +8,7 @@
             <h2 class="h2-1">Posts</h2>
         </div>
         <div class="container " id="post" style="margin-left: 10%;">
-            <div class="row">
+            <div class="row" style="margin-left: 20%;">
                 @foreach($post as $key => $value)
                 <div class="col-md-4  mb-4 portfolio-item ">
                     <div class="card h-100 text-white bg-dark " style="max-width: 18rem;">
