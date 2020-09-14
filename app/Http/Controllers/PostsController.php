@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\PostBid;
 use App\Posts;
 use App\Division;
@@ -10,6 +9,7 @@ use App\Upzilla;
 use App\Truck;
 use App\PostPickUpModel;
 use App\PostPickDownModel;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -127,9 +127,10 @@ class PostsController extends Controller
      * @param \App\Posts $posts
      * @return \Illuminate\Http\Response
      */
-    public function edit(Posts $posts)
+    public function edit($id)
     {
-        //
+        $post_Bid_data = User::findOrFail($id);
+        return response()->json($post_Bid_data, 201);
     }
 
     public function bidShow($post_id)

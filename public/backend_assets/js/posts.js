@@ -140,6 +140,21 @@ $(document).ready(function () {
         })
     })
 
+    $(document).on("click", ".view", function () {
+        let data = $(this).attr("data");
+        console.log(data);
+
+        $.ajax({
+            url: "/admin/post_bid/"+data+"/view",
+            type: "get",
+            dataType: "json",
+            success: function (response) {
+                $("#name").val(response.name);
+            }
+        })
+    })
+
+
     $("#data_lists").on("click", ".page-link", function (e) {
         e.preventDefault();
         let page_link = $(this).attr('href');
