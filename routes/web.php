@@ -60,6 +60,7 @@ Route::prefix('admin')->group(function () {
         Route::resource("/post_bid", "PostBidController");
         Route::post("/post_bid/store", "PostBidController@store");
         Route::get('/post_bid/show/{id}', 'PostBidController@show');
+        Route::get('/truck_data/{id}', 'PostBidController@truck_data');
         //RBAC
         //Role
         Route::resource("/role", "RoleController");

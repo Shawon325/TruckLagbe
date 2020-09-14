@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\PostBid;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostBidRequest;
 use Illuminate\Support\Arr;
@@ -19,6 +20,12 @@ class PostBidController extends Controller
     {
         $bid_data = PostBid::where("truck_driver_id", Auth::user()->id)->with("post")->get();
         return view('Backend.Truck.post_bid', ['bid_data' => $bid_data]);
+    }
+
+    public function truck_data($id)
+    {
+        $truck_Data = User::where("id", $id)->first();
+        return response()->json($truck_Data, 201);
     }
 
     /**
