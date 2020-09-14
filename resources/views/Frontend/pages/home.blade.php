@@ -4,7 +4,7 @@
     <main id="main">
 
         @include('Frontend.pages.post')
-        @include('Frontend.pages.client')
+{{--        @include('Frontend.pages.client')--}}
         @include('Frontend.pages.about')
         {{--    @include('Frontend.pages.service')--}}
         {{--    @include('Frontend.pages.portfolio')--}}
