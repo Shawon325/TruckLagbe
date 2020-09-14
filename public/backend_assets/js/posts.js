@@ -140,6 +140,19 @@ $(document).ready(function () {
         })
     })
 
+    $(document).on("click", "#bid_truck_id", function () {
+        let data = $(this).attr("data");
+
+        $.ajax({
+            url: "/admin/truck_data/" + data,
+            type: "get",
+            dataType: "json",
+            success: function (response) {
+                console.log(response);
+            }
+        })
+    })
+
     $("#data_lists").on("click", ".page-link", function (e) {
         e.preventDefault();
         let page_link = $(this).attr('href');
