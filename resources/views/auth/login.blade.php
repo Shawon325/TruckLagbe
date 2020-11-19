@@ -18,9 +18,14 @@
         <div class="popup-header" style="margin-top: -60px;">
             <a href="{{route('register')}}" class="pull-left"><i class="icon-user-plus"></i></a>
             <span class="text-semibold">User Login</span>
-
         </div>
+        
+        
         <div class="well">
+            <div class="mt-5">
+                <p>Email: <span>shawon@gmail.com</span></p>
+                <p>Pass: <span>ssssssss</span></p>
+            </div>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="form-group has-feedback">
